@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KURITA BOOTH GLOBAL — Japanese Airflow Engineering for Better Painting</title>
+<meta name="description" content="KURITA MAX SERIES paint booths for ASEAN — engineered airflow, heat, safety and workability from Japan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10233A;
+    --steel:#3E5A6E;
+    --steel-soft:#5E7A8C;
+    --steel-line:#C6D0D4;
+    --paper:#F1F2EE;
+    --paper-alt:#E8EAE4;
+    --white:#FFFFFF;
+    --red:#C4232E;
+    --red-dark:#9C1B24;
+    --c-eco:#7C8C4E;
+    --c-adv:#3E5A6E;
+    --c-wide:#2E7D6B;
+    --c-view:#C4232E;
+    --c-gmax:#4B4B4B;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Be Vietnam Pro', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.display{
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+    line-height:1.08;
+    margin:0;
+    color:var(--ink);
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:0.14em;
+    color:var(--red);
+    margin-bottom:10px;
+    display:block;
+  }
+  .section{padding:96px 0;border-top:1px solid var(--steel-line);}
+  .section.alt{background:var(--paper-alt);}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head h2{font-size:clamp(28px,3.6vw,42px);}
+  .section-head .lede{margin-top:16px;font-size:17px;color:var(--steel);max-width:56ch;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 26px;
+    font-size:14.5px;font-weight:600;
+    border:1.5px solid var(--ink);
+    background:var(--ink);color:var(--white);
+    white-space:nowrap;
+  }
+  .btn:hover{background:var(--red);border-color:var(--red);}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn.ghost:hover{background:var(--ink);color:var(--white);}
+  .btn.on-dark{border-color:var(--white);color:var(--ink);background:var(--white);}
+  .btn.on-dark:hover{background:var(--red);border-color:var(--red);color:var(--white);}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(241,242,238,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--steel-line);
+  }
+  .headbar{
+    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .logo{display:flex;flex-direction:column;line-height:1;}
+  .logo .l1{font-family:'Oswald';font-weight:700;font-size:19px;letter-spacing:0.03em;}
+  .logo .l2{font-size:10px;letter-spacing:0.16em;color:var(--steel);margin-top:3px;}
+  nav.mainnav{display:flex;align-items:center;gap:26px;}
+  nav.mainnav a{font-size:14px;font-weight:500;color:var(--steel);}
+  nav.mainnav a:hover{color:var(--red);}
+  .head-actions{display:flex;align-items:center;gap:14px;}
+  .langtoggle{
+    display:flex;border:1px solid var(--ink);overflow:hidden;
+  }
+  .langtoggle button{
+    padding:7px 12px;font-size:12.5px;font-weight:600;background:transparent;border:0;color:var(--ink);
+  }
+  .langtoggle button.active{background:var(--ink);color:var(--white);}
+  .navtoggle{display:none;flex-direction:column;gap:4px;background:none;border:0;padding:6px;}
+  .navtoggle span{width:22px;height:2px;background:var(--ink);}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:64px 0 88px;border-top:0;}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;}
+  .hero-copy .eyebrow{margin-bottom:18px;}
+  .hero-copy h1{font-size:clamp(38px,5vw,60px);}
+  .hero-copy h1 .accent{color:var(--red);}
+  .hero-copy .sub{margin-top:22px;font-size:18px;color:var(--steel);max-width:46ch;}
+  .hero-actions{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-meta{
+    margin-top:44px;display:flex;gap:34px;flex-wrap:wrap;
+    padding-top:24px;border-top:1px solid var(--steel-line);
+  }
+  .hero-meta div b{display:block;font-family:'Oswald';font-size:22px;}
+  .hero-meta div span{font-size:12.5px;color:var(--steel);}
+  .hero-art{border:1px solid var(--steel-line);background:var(--white);padding:18px;}
+  .hero-art figcaption{font-size:11.5px;color:var(--steel-soft);text-align:center;margin-top:10px;letter-spacing:0.03em;}
+
+  /* ---------- Problem flow ---------- */
+  .problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--steel-line);border:1px solid var(--steel-line);}
+  .problem-tile{
+    background:var(--white);padding:26px 22px;min-height:128px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    transition:background .15s;
+  }
+  .problem-tile:hover{background:var(--paper-alt);}
+  .problem-tile .pnum{font-size:12px;color:var(--steel-soft);}
+  .problem-tile .ptext{font-family:'Oswald';font-size:18px;margin-top:14px;}
+  .flow-strip{
+    margin-top:52px;display:flex;align-items:center;flex-wrap:wrap;gap:0;
+    border-top:1px solid var(--steel-line);padding-top:36px;
+  }
+  .flow-step{flex:1;min-width:150px;padding:0 18px 0 0;position:relative;}
+  .flow-step .fnum{font-family:'Oswald';font-size:13px;color:var(--red);letter-spacing:0.08em;}
+  .flow-step h4{font-size:16px;margin-top:8px;}
+  .flow-arrow{width:26px;color:var(--steel-line);font-size:20px;flex:0 0 auto;padding:0 6px;}
+
+  /* ---------- Why Kurita ---------- */
+  .why-list{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--steel-line);}
+  .why-item{
+    padding:28px 30px;border-bottom:1px solid var(--steel-line);
+    display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:start;
+  }
+  .why-item:nth-child(odd){border-right:1px solid var(--steel-line);}
+  .why-item .wicon{width:44px;height:44px;color:var(--red);}
+  .why-item h3{font-size:17px;letter-spacing:0.02em;}
+  .why-item p{margin-top:8px;font-size:14.5px;color:var(--steel);}
+  .why-note{margin-top:30px;font-size:13px;color:var(--steel-soft);border-left:2px solid var(--steel-line);padding-left:14px;}
+
+  /* ---------- MAX Series cards ---------- */
+  .series-scroller{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  .model-card{
+    background:var(--white);border:1px solid var(--steel-line);
+    border-top:4px solid var(--model-color,var(--ink));
+    padding:26px 20px 24px;display:flex;flex-direction:column;min-height:340px;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .model-card.highlight{transform:translateY(-6px);box-shadow:0 14px 26px -14px rgba(16,35,58,0.35);}
+  .model-card .position{font-size:11px;letter-spacing:0.12em;color:var(--model-color,var(--steel));font-weight:600;}
+  .model-card h3{font-family:'Oswald';font-size:22px;margin-top:10px;}
+  .model-card .msg{margin-top:8px;font-size:13.5px;color:var(--steel);flex:0 0 auto;}
+  .model-card .fit{margin-top:auto;padding-top:18px;border-top:1px solid var(--steel-line);font-size:12.5px;color:var(--steel-soft);}
+  .model-card .swatch{width:30px;height:6px;background:var(--model-color,var(--ink));margin-top:16px;}
+
+  /* ---------- Selector ---------- */
+  .selector-box{border:1px solid var(--steel-line);background:var(--white);padding:36px;}
+  .selector-q{font-size:13px;letter-spacing:0.08em;color:var(--steel-soft);margin-bottom:16px;}
+  .selector-opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;}
+  .selector-opt{
+    text-align:left;border:1.5px solid var(--steel-line);background:var(--paper);
+    padding:16px 18px;font-size:14.5px;font-weight:500;
+  }
+  .selector-opt:hover{border-color:var(--ink);}
+  .selector-opt.active{border-color:var(--red);background:var(--white);}
+  .selector-result{
+    margin-top:28px;padding-top:26px;border-top:1px solid var(--steel-line);
+    display:none;align-items:center;gap:24px;flex-wrap:wrap;
+  }
+  .selector-result.show{display:flex;}
+  .selector-result .badge{font-size:12px;letter-spacing:0.1em;color:var(--steel-soft);}
+  .selector-result h3{font-family:'Oswald';font-size:26px;margin-top:6px;}
+  .selector-result p{font-size:14px;color:var(--steel);margin-top:6px;max-width:44ch;}
+
+  /* ---------- Engineering ---------- */
+  .eng-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--steel-line);}
+  .eng-card{padding:30px 24px;border-right:1px solid var(--steel-line);}
+  .eng-card:last-child{border-right:0;}
+  .eng-card svg{width:40px;height:40px;color:var(--red);margin-bottom:20px;}
+  .eng-card h3{font-size:17px;}
+  .eng-card p{margin-top:10px;font-size:13.5px;color:var(--steel);}
+
+  /* ---------- Applications ---------- */
+  .app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .app-card{border:1px solid var(--steel-line);background:var(--white);padding:26px 20px;text-align:left;}
+  .app-card svg{width:36px;height:36px;color:var(--steel);margin-bottom:18px;}
+  .app-card h4{font-size:15.5px;}
+
+  /* ---------- Case studies ---------- */
+  .case-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;}
+  .case-main{border:1px solid var(--steel-line);background:var(--white);padding:34px;}
+  .case-main .eyebrow{margin-bottom:14px;}
+  .case-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .case-tags span{font-size:12px;border:1px solid var(--steel-line);padding:6px 12px;color:var(--steel);}
+  .case-vn{border:1.5px dashed var(--red);background:var(--white);padding:34px;display:flex;flex-direction:column;justify-content:center;}
+  .case-vn .eyebrow{color:var(--red);}
+  .case-vn h3{font-size:20px;margin-top:10px;}
+  .case-vn p{margin-top:10px;font-size:14px;color:var(--steel);}
+
+  /* ---------- Site survey process ---------- */
+  .steps{display:flex;border:1px solid var(--steel-line);}
+  .step{flex:1;padding:28px 22px;border-right:1px solid var(--steel-line);position:relative;}
+  .step:last-child{border-right:0;}
+  .step .snum{font-family:'Oswald';font-size:28px;color:var(--steel-line);}
+  .step h4{font-size:15px;margin-top:14px;}
+  .step p{margin-top:8px;font-size:12.5px;color:var(--steel);}
+
+  /* ---------- About ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+  .about-grid p{color:var(--steel);font-size:15.5px;}
+  .about-grid p + p{margin-top:16px;}
+  .principle{
+    margin-top:28px;border-left:3px solid var(--red);padding-left:20px;
+    font-family:'Oswald';font-size:19px;line-height:1.35;
+  }
+  .expansion-map{border:1px solid var(--steel-line);background:var(--white);padding:28px;}
+  .expansion-row{display:flex;align-items:center;gap:0;flex-wrap:wrap;}
+  .expansion-node{
+    padding:10px 16px;border:1px solid var(--ink);font-size:13.5px;font-weight:600;
+  }
+  .expansion-node.active{background:var(--ink);color:var(--white);}
+  .expansion-node.future{border-style:dashed;color:var(--steel);border-color:var(--steel-line);}
+  .expansion-sep{padding:0 10px;color:var(--steel-line);}
+  .lang-phase{margin-top:22px;display:flex;gap:18px;font-size:12.5px;color:var(--steel-soft);}
+
+  /* ---------- Contact / CTA ---------- */
+  .cta-band{background:var(--ink);color:var(--white);padding:88px 0;border-top:0;}
+  .cta-band .eyebrow{color:#ff9a9f;}
+  .cta-band h2{color:var(--white);font-size:clamp(28px,3.8vw,44px);max-width:16ch;}
+  .cta-band .lede{color:#B9C4CC;margin-top:18px;max-width:52ch;font-size:16px;}
+  .cta-band .hero-actions{margin-top:32px;}
+  .contact-grid{margin-top:56px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,0.18);padding-top:36px;}
+  .contact-grid div{padding-right:24px;}
+  .contact-grid h4{color:#B9C4CC;font-size:12px;letter-spacing:0.1em;font-weight:600;margin-bottom:10px;}
+  .contact-grid p{color:var(--white);font-size:14.5px;}
+
+  footer{background:var(--ink);color:#8FA1AE;padding:34px 0;font-size:12.5px;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+
+  @media (max-width:980px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-art{order:-1;}
+    .problem-grid{grid-template-columns:1fr 1fr;}
+    .why-list{grid-template-columns:1fr;}
+    .why-item:nth-child(odd){border-right:0;}
+    .series-scroller{grid-template-columns:1fr 1fr;}
+    .eng-grid{grid-template-columns:1fr 1fr;}
+    .eng-card{border-bottom:1px solid var(--steel-line);}
+    .eng-card:nth-child(2){border-right:0;}
+    .app-grid{grid-template-columns:1fr 1fr;}
+    .case-grid{grid-template-columns:1fr;}
+    .steps{flex-direction:column;}
+    .step{border-right:0;border-bottom:1px solid var(--steel-line);}
+    .about-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;gap:20px;}
+    nav.mainnav{display:none;}
+    .navtoggle{display:flex;}
+  }
+  @media (max-width:640px){
+    .section{padding:64px 0;}
+    .series-scroller{grid-template-columns:1fr;}
+    .problem-grid{grid-template-columns:1fr;}
+    .flow-strip{flex-direction:column;align-items:flex-start;gap:18px;}
+    .flow-arrow{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="headbar">
+    <a href="#top" class="logo">
+      <span class="l1">KURITA BOOTH <span style="color:var(--red)">GLOBAL</span></span>
+      <span class="l2" data-i18n="tag_family">KURITA MAX SERIES · PAINT BOOTH SYSTEMS</span>
+    </a>
+    <nav class="mainnav">
+      <a href="#why" data-i18n="nav_why">Why KURITA MAX</a>
+      <a href="#series" data-i18n="nav_series">MAX Series</a>
+      <a href="#selector" data-i18n="nav_selector">Find Your MAX</a>
+      <a href="#engineering" data-i18n="nav_eng">Engineering</a>
+      <a href="#cases" data-i18n="nav_cases">Case Studies</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+    </nav>
+    <div class="head-actions">
+      <div class="langtoggle">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="vi">VI</button>
+      </div>
+      <a href="#contact" class="btn" data-i18n="nav_cta">Request Site Survey</a>
+      <button class="navtoggle" aria-label="Menu" id="navToggleBtn"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow" data-i18n="hero_eyebrow">JAPANESE PAINT BOOTH ENGINEERING FOR ASEAN</span>
+        <h1 data-i18n="hero_h1">Engineering better <span class="accent">paint booths</span> from Japan</h1>
+        <p class="sub" data-i18n="hero_sub">KURITA MAX SERIES integrates airflow, heat, safety and workability into one engineering system — built on decades of proven use across Japanese car dealers and body shops, now brought to ASEAN.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn" data-i18n="hero_cta1">Request a Paint Booth Site Survey</a>
+          <a href="#selector" class="btn ghost" data-i18n="hero_cta2">Which MAX is right for you?</a>
+        </div>
+        <div class="hero-meta">
+          <div><b>5</b><span data-i18n="hero_meta1">Engineered MAX models</span></div>
+          <div><b>4</b><span data-i18n="hero_meta2">Engineering pillars</span></div>
+          <div><b>VN → TH → ID → MY</b><span data-i18n="hero_meta3">ASEAN expansion path</span></div>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <svg viewBox="0 0 460 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 z" fill="#3E5A6E"/>
+            </marker>
+            <marker id="arrowRed" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 z" fill="#C4232E"/>
+            </marker>
+          </defs>
+          <!-- grid -->
+          <g stroke="#C6D0D4" stroke-width="1">
+            <line x1="0" y1="60" x2="460" y2="60"/>
+            <line x1="0" y1="360" x2="460" y2="360"/>
+            <line x1="30" y1="0" x2="30" y2="420"/>
+            <line x1="430" y1="0" x2="430" y2="420"/>
+          </g>
+          <!-- booth shell -->
+          <rect x="50" y="60" width="360" height="300" fill="none" stroke="#10233A" stroke-width="2"/>
+          <!-- plenum -->
+          <rect x="50" y="60" width="360" height="34" fill="#E8EAE4" stroke="#10233A" stroke-width="1.5"/>
+          <text x="66" y="82" font-family="Oswald" font-size="12" fill="#10233A" letter-spacing="1">SUPPLY AIR PLENUM</text>
+          <!-- supply arrows -->
+          <g stroke="#3E5A6E" stroke-width="2" marker-end="url(#arrow)">
+            <line x1="100" y1="96" x2="100" y2="150"/>
+            <line x1="160" y1="96" x2="160" y2="150"/>
+            <line x1="300" y1="96" x2="300" y2="150"/>
+            <line x1="360" y1="96" x2="360" y2="150"/>
+          </g>
+          <!-- lighting row = workability -->
+          <g fill="#10233A">
+            <rect x="90" y="100" width="20" height="5"/>
+            <rect x="150" y="100" width="20" height="5"/>
+            <rect x="290" y="100" width="20" height="5"/>
+            <rect x="350" y="100" width="20" height="5"/>
+          </g>
+          <!-- vehicle silhouette -->
+          <path d="M120 300 L150 260 L200 250 L280 250 L320 270 L340 300 L340 310 L120 310 Z" fill="#F1F2EE" stroke="#10233A" stroke-width="2"/>
+          <circle cx="160" cy="310" r="14" fill="#10233A"/>
+          <circle cx="300" cy="310" r="14" fill="#10233A"/>
+          <!-- heat wave near vehicle = heat engineering -->
+          <path d="M210 240 q6 -10 0 -20 M230 240 q6 -10 0 -20 M250 240 q6 -10 0 -20" fill="none" stroke="#C4232E" stroke-width="1.6" stroke-linecap="round"/>
+          <!-- floor grating -->
+          <rect x="50" y="340" width="360" height="20" fill="#E8EAE4" stroke="#10233A" stroke-width="1.5"/>
+          <g stroke="#10233A" stroke-width="1">
+            <line x1="70" y1="340" x2="70" y2="360"/>
+            <line x1="100" y1="340" x2="100" y2="360"/>
+            <line x1="130" y1="340" x2="130" y2="360"/>
+            <line x1="160" y1="340" x2="160" y2="360"/>
+            <line x1="300" y1="340" x2="300" y2="360"/>
+            <line x1="330" y1="340" x2="330" y2="360"/>
+            <line x1="360" y1="340" x2="360" y2="360"/>
+            <line x1="390" y1="340" x2="390" y2="360"/>
+          </g>
+          <!-- exhaust duct -->
+          <line x1="230" y1="360" x2="230" y2="400" stroke="#C4232E" stroke-width="2" marker-end="url(#arrowRed)"/>
+          <text x="238" y="398" font-family="Oswald" font-size="12" fill="#C4232E" letter-spacing="1">EXHAUST</text>
+          <!-- door = safety -->
+          <line x1="50" y1="200" x2="50" y2="300" stroke="#C4232E" stroke-width="3"/>
+          <text x="8" y="255" font-family="Oswald" font-size="11" fill="#C4232E" transform="rotate(-90 20,255)">SAFETY EXIT</text>
+        </svg>
+        <figcaption data-i18n="hero_caption">Schematic — airflow, heat, safety and workability engineered as one system</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section" id="problem">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="problem_eyebrow">START WITH THE PROBLEM, NOT THE PRODUCT</span>
+        <h2 data-i18n="problem_h2">What problem are you trying to solve?</h2>
+        <p class="lede" data-i18n="problem_lede">We don't open with "which product do you want?" We start with what's actually going wrong on your shop floor — then engineer back to the right MAX.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-tile"><span class="pnum">01</span><span class="ptext" data-i18n="prob1">Need a new paint booth</span></div>
+        <div class="problem-tile"><span class="pnum">02</span><span class="ptext" data-i18n="prob2">Poor airflow</span></div>
+        <div class="problem-tile"><span class="pnum">03</span><span class="ptext" data-i18n="prob3">Paint defects</span></div>
+        <div class="problem-tile"><span class="pnum">04</span><span class="ptext" data-i18n="prob4">Long drying time</span></div>
+        <div class="problem-tile"><span class="pnum">05</span><span class="ptext" data-i18n="prob5">Need more working space</span></div>
+        <div class="problem-tile"><span class="pnum">06</span><span class="ptext" data-i18n="prob6">Large vehicle painting</span></div>
+      </div>
+      <div class="flow-strip">
+        <div class="flow-step"><span class="fnum" data-i18n="flow_n1">STEP 1</span><h4 data-i18n="flow1">Problem</h4></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="fnum" data-i18n="flow_n2">STEP 2</span><h4 data-i18n="flow2">Engineering requirement</h4></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="fnum" data-i18n="flow_n3">STEP 3</span><h4 data-i18n="flow3">Recommended MAX</h4></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step"><span class="fnum" data-i18n="flow_n4">STEP 4</span><h4 data-i18n="flow4">Site Survey</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY KURITA MAX -->
+  <section class="section alt" id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="why_eyebrow">WHY KURITA MAX</span>
+        <h2 data-i18n="why_h2">Why body shops across Japan choose KURITA</h2>
+        <p class="lede" data-i18n="why_lede">Not just a booth built in Japan — an engineering discipline applied to every square metre of it.</p>
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <svg class="wicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20h4V10H4v10zM10 20h4V4h-4v16zM16 20h4v-7h-4v7z"/></svg>
+          <div><h3 data-i18n="why1_h">Proven in Japan</h3><p data-i18n="why1_p">Built on years of accumulated experience in Japan's automotive body-repair market.</p></div>
+        </div>
+        <div class="why-item">
+          <svg class="wicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+          <div><h3 data-i18n="why2_h">Trusted nationwide</h3><p data-i18n="why2_p">In service at car dealers and professional repair shops across the whole of Japan.</p></div>
+        </div>
+        <div class="why-item">
+          <svg class="wicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h11M14 12l-3-3M14 12l-3 3M17 6h4M17 18h4"/></svg>
+          <div><h3 data-i18n="why3_h">Airflow engineering</h3><p data-i18n="why3_p">Supply air, exhaust and airflow distribution designed as one integrated system.</p></div>
+        </div>
+        <div class="why-item">
+          <svg class="wicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c2 3-1 4-1 6a3 3 0 006 0c0-1-1-2-1-3 2 1 4 4 4 7a8 8 0 11-16 0c0-3 2-6 4-8 0 2 1 3 2 3s2-3 2-5z"/></svg>
+          <div><h3 data-i18n="why4_h">Paint &amp; drying engineering</h3><p data-i18n="why4_p">Designed for the paint process and the drying process together, not one at a time.</p></div>
+        </div>
+        <div class="why-item">
+          <svg class="wicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/></svg>
+          <div><h3 data-i18n="why5_h">Safety &amp; workability</h3><p data-i18n="why5_p">Structural safety alongside lighting, sightlines and layout that make the operator's job easier.</p></div>
+        </div>
+      </div>
+      <p class="why-note" data-i18n="why_note">"Japan No.1" and similar claims will only be published once definitions and objective evidence — sales volume, installed units, market coverage — are confirmed with 株式会社栗田工業.</p>
+    </div>
+  </section>
+
+  <!-- MAX SERIES -->
+  <section class="section" id="series">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="series_eyebrow">PORTFOLIO ARCHITECTURE</span>
+        <h2 data-i18n="series_h2">Five models, five clear reasons to choose</h2>
+        <p class="lede" data-i18n="series_lede">Before the spec sheet, understand the role each model plays — so catalogs stop competing with each other for the customer's attention.</p>
+      </div>
+      <div class="series-scroller" id="seriesGrid">
+        <div class="model-card" style="--model-color:var(--c-eco)" data-model="eco">
+          <span class="position" data-i18n="m1_pos">COMPACT</span>
+          <h3>Eco Max</h3>
+          <p class="msg" data-i18n="m1_msg">Compact &amp; economic — an efficient entry point without cutting corners on airflow.</p>
+          <p class="fit" data-i18n="m1_fit">Best fit: passenger cars, compact &amp; budget-focused shops</p>
+          <div class="swatch"></div>
+        </div>
+        <div class="model-card" style="--model-color:var(--c-adv)" data-model="advance">
+          <span class="position" data-i18n="m2_pos">PROFESSIONAL</span>
+          <h3>Max Convert Advance</h3>
+          <p class="msg" data-i18n="m2_msg">Professional paint &amp; drying performance for standard passenger-car body shops.</p>
+          <p class="fit" data-i18n="m2_fit">Best fit: passenger cars prioritising paint quality &amp; drying</p>
+          <div class="swatch"></div>
+        </div>
+        <div class="model-card" style="--model-color:var(--c-wide)" data-model="wide">
+          <span class="position" data-i18n="m3_pos">WIDE PROFESSIONAL</span>
+          <h3>Max Convert Advance Wide</h3>
+          <p class="msg" data-i18n="m3_msg">More space, more capability — the Advance platform widened for bigger vehicles and crews.</p>
+          <p class="fit" data-i18n="m3_fit">Best fit: large passenger cars, shops needing more working space</p>
+          <div class="swatch"></div>
+        </div>
+        <div class="model-card" style="--model-color:var(--c-view)" data-model="view">
+          <span class="position" data-i18n="m4_pos">PREMIUM</span>
+          <h3>View Max</h3>
+          <p class="msg" data-i18n="m4_msg">Visibility &amp; comfort — for premium body shops that inspect as carefully as they paint.</p>
+          <p class="fit" data-i18n="m4_fit">Best fit: premium body shops prioritising visibility &amp; comfort</p>
+          <div class="swatch"></div>
+        </div>
+        <div class="model-card" style="--model-color:var(--c-gmax)" data-model="gmax">
+          <span class="position" data-i18n="m5_pos">HEAVY DUTY</span>
+          <h3>G-Max</h3>
+          <p class="msg" data-i18n="m5_msg">Built for buses, trucks and large vehicles that standard booths can't accommodate.</p>
+          <p class="fit" data-i18n="m5_fit">Best fit: bus, truck &amp; large-vehicle painting</p>
+          <div class="swatch"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SELECTOR -->
+  <section class="section alt" id="selector">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="sel_eyebrow">WHICH KURITA MAX IS RIGHT FOR YOU</span>
+        <h2 data-i18n="sel_h2">Tell us your shop, we'll point to your MAX</h2>
+        <p class="lede" data-i18n="sel_lede">One of the most important pages on this site — answer one question and see the recommended model before a single spec sheet.</p>
+      </div>
+      <div class="selector-box">
+        <span class="selector-q" data-i18n="sel_q">SELECT WHAT DESCRIBES YOUR SHOP</span>
+        <div class="selector-opts" id="selectorOpts">
+          <button class="selector-opt" data-model="eco" data-i18n="sel_opt1">Passenger car — compact &amp; budget</button>
+          <button class="selector-opt" data-model="advance" data-i18n="sel_opt2">Passenger car — paint quality &amp; drying</button>
+          <button class="selector-opt" data-model="wide" data-i18n="sel_opt3">Large passenger car — more working space</button>
+          <button class="selector-opt" data-model="view" data-i18n="sel_opt4">Premium body shop — visibility &amp; comfort</button>
+          <button class="selector-opt" data-model="gmax" data-i18n="sel_opt5">Bus, truck &amp; large vehicle</button>
+        </div>
+        <div class="selector-result" id="selectorResult">
+          <div>
+            <span class="badge" data-i18n="sel_result_badge">RECOMMENDED</span>
+            <h3 id="selectorResultName">—</h3>
+            <p id="selectorResultText"></p>
+          </div>
+          <a href="#contact" class="btn" data-i18n="sel_result_cta">Request Site Survey for this model</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGINEERING -->
+  <section class="section" id="engineering">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="eng_eyebrow">ENGINEERING</span>
+        <h2 data-i18n="eng_h2">One system: airflow, heat, safety, workability</h2>
+        <p class="lede" data-i18n="eng_lede">The strength of KURITA MAX isn't that it's made in Japan — it's that these four disciplines are engineered together, not bolted on separately.</p>
+      </div>
+      <div class="eng-grid">
+        <div class="eng-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h11M14 12l-3-3M14 12l-3 3M17 6h4M17 18h4"/></svg>
+          <h3 data-i18n="eng1_h">Airflow</h3>
+          <p data-i18n="eng1_p">Supply air, exhaust and distribution engineered for even, controllable airflow across the booth.</p>
+        </div>
+        <div class="eng-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c2 3-1 4-1 6a3 3 0 006 0c0-1-1-2-1-3 2 1 4 4 4 7a8 8 0 11-16 0c0-3 2-6 4-8 0 2 1 3 2 3s2-3 2-5z"/></svg>
+          <h3 data-i18n="eng2_h">Heat</h3>
+          <p data-i18n="eng2_p">Drying process and heat efficiency designed together, not treated as an afterthought.</p>
+        </div>
+        <div class="eng-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/></svg>
+          <h3 data-i18n="eng3_h">Safety</h3>
+          <p data-i18n="eng3_p">Structural safety and operating conditions engineered to protect the people inside.</p>
+        </div>
+        <div class="eng-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3.4"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/></svg>
+          <h3 data-i18n="eng4_h">Workability</h3>
+          <p data-i18n="eng4_p">Lighting, working space, visibility and the operator's path through the booth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section class="section alt" id="applications">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="app_eyebrow">APPLICATIONS</span>
+        <h2 data-i18n="app_h2">Built for what actually comes through your doors</h2>
+      </div>
+      <div class="app-grid">
+        <div class="app-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16l1.5-5A2 2 0 016.4 9.6h11.2A2 2 0 0119.5 11L21 16M3 16v3h2v-3M19 16v3h2v-3M5 16h14"/><circle cx="7" cy="18.5" r="1.3"/><circle cx="17" cy="18.5" r="1.3"/></svg>
+          <h4 data-i18n="app1">Passenger Cars</h4>
+        </div>
+        <div class="app-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 16l1.2-6A2 2 0 016.1 8.6h9.4c.9 0 1.7.5 2 1.3L20 16M3 16v3h2v-3M18 16v3h2v-3M5 16h13"/><circle cx="7" cy="18.5" r="1.3"/><circle cx="16" cy="18.5" r="1.3"/></svg>
+          <h4 data-i18n="app2">SUV</h4>
+        </div>
+        <div class="app-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="18" height="10" rx="1"/><line x1="3" y1="12" x2="21" y2="12"/><circle cx="7" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>
+          <h4 data-i18n="app3">Bus</h4>
+        </div>
+        <div class="app-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9v8H3zM12 11h5l3 3v2h-8z"/><circle cx="7" cy="19" r="1.3"/><circle cx="17" cy="19" r="1.3"/></svg>
+          <h4 data-i18n="app4">Truck</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section class="section" id="cases">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="case_eyebrow">CASE STUDIES</span>
+        <h2 data-i18n="case_h2">Proven in Japan. Next: proven in Vietnam.</h2>
+      </div>
+      <div class="case-grid">
+        <div class="case-main">
+          <span class="eyebrow" data-i18n="case_main_eyebrow">JAPAN TRACK RECORD</span>
+          <p data-i18n="case_main_p">KURITA MAX is installed at car dealers, independent repair shops and high-volume body shops across Japan. Where company names and photos can be shared publicly, we will use them directly; where they can't, cases are presented anonymously — for example, "Japanese Major Car Dealer" or "Professional Body Shop in Japan."</p>
+          <div class="case-tags">
+            <span data-i18n="case_tag1">Car Dealer</span>
+            <span data-i18n="case_tag2">Independent Repair Shop</span>
+            <span data-i18n="case_tag3">Large Vehicle</span>
+            <span data-i18n="case_tag4">High-volume Body Shop</span>
+            <span data-i18n="case_tag5">Existing Booth Replacement</span>
+          </div>
+        </div>
+        <div class="case-vn">
+          <span class="eyebrow" data-i18n="case_vn_eyebrow">MOST IMPORTANT CASE AHEAD</span>
+          <h3 data-i18n="case_vn_h">First Vietnam Installation</h3>
+          <p data-i18n="case_vn_p">The single most important case study for ASEAN expansion doesn't exist yet — it starts with the first qualified Site Survey in Vietnam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SITE SURVEY PROCESS -->
+  <section class="section alt" id="survey">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="survey_eyebrow">HOW WE WORK — NOT A PRICE QUOTE FIRST</span>
+        <h2 data-i18n="survey_h2">Site Survey, before Quotation</h2>
+        <p class="lede" data-i18n="survey_lede">Our primary call to action is a Site Survey, not a quote request — so the problem gets defined properly before price enters the conversation.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="snum">01</span><h4 data-i18n="step1_h">Site Survey</h4><p data-i18n="step1_p">On-site check of the current shop, vehicles and constraints.</p></div>
+        <div class="step"><span class="snum">02</span><h4 data-i18n="step2_h">Problem Definition</h4><p data-i18n="step2_p">Airflow, heat, safety and workability issues identified clearly.</p></div>
+        <div class="step"><span class="snum">03</span><h4 data-i18n="step3_h">Process Design</h4><p data-i18n="step3_p">Painting and drying process engineered around your operation.</p></div>
+        <div class="step"><span class="snum">04</span><h4 data-i18n="step4_h">Recommended Equipment</h4><p data-i18n="step4_p">A specific MAX model matched to the defined requirement.</p></div>
+        <div class="step"><span class="snum">05</span><h4 data-i18n="step5_h">Quotation</h4><p data-i18n="step5_p">Commercial proposal built on an engineered solution, not a guess.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="eyebrow" data-i18n="about_eyebrow">ABOUT KURITA BOOTH GLOBAL</span>
+        <h2 data-i18n="about_h2" style="font-size:clamp(26px,3.2vw,36px);margin-bottom:18px;">A new sales system, not a translated website</h2>
+        <p data-i18n="about_p1">KURITA BOOTH GLOBAL is the overseas Paint Booth platform of 株式会社栗田工業 (Kurita Kogyo Co., Ltd.), a Japanese manufacturer with years of experience in automotive body-repair paint equipment. Phase 1 focuses entirely on the KURITA MAX SERIES, starting in Vietnam.</p>
+        <p data-i18n="about_p2">This is deliberately narrow: while Kurita Kogyo also builds drying ovens, mixing equipment, local exhaust systems and hazardous-material storage, the entry point for ASEAN is fixed at Paint Booth = KURITA MAX SERIES — so the first thing the market learns is a single, strong idea.</p>
+        <p class="principle" data-i18n="about_principle">We are not translating a Japanese website. We are building a new ASEAN sales system for KURITA MAX.</p>
+      </div>
+      <div class="expansion-map">
+        <span class="eyebrow" data-i18n="expansion_eyebrow">MARKET EXPANSION</span>
+        <div class="expansion-row" style="margin-top:14px;">
+          <span class="expansion-node active">Vietnam</span><span class="expansion-sep">→</span>
+          <span class="expansion-node future">Thailand</span><span class="expansion-sep">→</span>
+          <span class="expansion-node future">Indonesia</span><span class="expansion-sep">→</span>
+          <span class="expansion-node future">Malaysia</span>
+        </div>
+        <div class="lang-phase">
+          <span data-i18n="phase1_label">Phase 1: English + Vietnamese</span>
+          <span data-i18n="phase2_label">Phase 2: Thai, Indonesian, Malay</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section class="cta-band" id="contact">
+    <div class="wrap">
+      <span class="eyebrow" data-i18n="cta_eyebrow">GET STARTED</span>
+      <h2 data-i18n="cta_h2">Request a Paint Booth Site Survey</h2>
+      <p class="lede" data-i18n="cta_lede">Tell us about your shop and we'll schedule a site visit — photos, measurements and process details first, equipment recommendation second.</p>
+      <div class="hero-actions">
+        <a href="mailto:contact@kuritabooth.global" class="btn on-dark" data-i18n="cta_btn1">Email contact@kuritabooth.global</a>
+        <a href="#series" class="btn ghost" style="border-color:#fff;color:#fff;" data-i18n="cta_btn2">Browse the MAX Series</a>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <h4 data-i18n="contact_h1">DOMAIN</h4>
+          <p>kuritabooth.global</p>
+        </div>
+        <div>
+          <h4 data-i18n="contact_h2">SALES PARTNER — VIETNAM</h4>
+          <p>CoatureVietnam</p>
+        </div>
+        <div>
+          <h4 data-i18n="contact_h3">MANUFACTURER</h4>
+          <p>株式会社栗田工業 (Kurita Kogyo Co., Ltd.)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-i18n="footer_1">© KURITA BOOTH GLOBAL — Paint Booth Systems for ASEAN</span>
+    <span data-i18n="footer_2">Phase 1: Vietnam · English + Vietnamese</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var models = {
+    eco:     { name:"Eco Max",                    text_en:"Compact & budget-focused — an efficient entry point that still delivers engineered airflow.", text_vi:"Nhỏ gọn & tiết kiệm — điểm khởi đầu hiệu quả, vẫn đảm bảo luồng khí được thiết kế đúng chuẩn." },
+    advance: { name:"Max Convert Advance",         text_en:"Professional paint & drying performance for standard passenger-car body shops.", text_vi:"Hiệu suất sơn & sấy chuyên nghiệp cho gara sửa chữa thân vỏ xe con tiêu chuẩn." },
+    wide:    { name:"Max Convert Advance Wide",    text_en:"The Advance platform widened for bigger vehicles and more working room.", text_vi:"Nền tảng Advance được mở rộng cho xe lớn hơn và nhiều không gian thao tác hơn." },
+    view:    { name:"View Max",                    text_en:"Visibility & comfort for premium body shops that inspect as carefully as they paint.", text_vi:"Tầm nhìn & sự thoải mái cho gara cao cấp, kiểm tra kỹ lưỡng không kém gì việc sơn." },
+    gmax:    { name:"G-Max",                       text_en:"Heavy-duty engineering for buses, trucks and large-vehicle painting.", text_vi:"Thiết kế chịu tải nặng cho việc sơn xe buýt, xe tải và xe cỡ lớn." }
+  };
+
+  var opts = document.querySelectorAll('.selector-opt');
+  var resultBox = document.getElementById('selectorResult');
+  var resultName = document.getElementById('selectorResultName');
+  var resultText = document.getElementById('selectorResultText');
+  var cards = document.querySelectorAll('.model-card');
+
+  function currentLang(){ return document.body.getAttribute('data-lang') || 'en'; }
+
+  opts.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      opts.forEach(function(o){ o.classList.remove('active'); });
+      btn.classList.add('active');
+      var key = btn.getAttribute('data-model');
+      var m = models[key];
+      resultName.textContent = m.name;
+      resultText.textContent = currentLang() === 'vi' ? m.text_vi : m.text_en;
+      resultBox.classList.add('show');
+      cards.forEach(function(c){
+        c.classList.toggle('highlight', c.getAttribute('data-model') === key);
+      });
+      var target = document.querySelector('.model-card[data-model="'+key+'"]');
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'}); }
+    });
+  });
+
+  // mobile nav toggle
+  var navBtn = document.getElementById('navToggleBtn');
+  var mainnav = document.querySelector('nav.mainnav');
+  navBtn.addEventListener('click', function(){
+    var open = mainnav.style.display === 'flex';
+    mainnav.style.display = open ? 'none' : 'flex';
+    mainnav.style.flexDirection = 'column';
+    mainnav.style.position = 'absolute';
+    mainnav.style.top = '64px';
+    mainnav.style.left = '0';
+    mainnav.style.right = '0';
+    mainnav.style.background = '#F1F2EE';
+    mainnav.style.padding = '18px 28px';
+    mainnav.style.borderBottom = '1px solid #C6D0D4';
+  });
+
+  /* ---------------- i18n ---------------- */
+  var dict = {
+    tag_family:{vi:"KURITA MAX SERIES · HỆ THỐNG PAINT BOOTH"},
+    nav_why:{vi:"Vì sao chọn MAX"}, nav_series:{vi:"MAX Series"}, nav_selector:{vi:"Chọn MAX phù hợp"},
+    nav_eng:{vi:"Kỹ thuật"}, nav_cases:{vi:"Case Study"}, nav_about:{vi:"Giới thiệu"}, nav_cta:{vi:"Yêu cầu Site Survey"},
+
+    hero_eyebrow:{vi:"KỸ THUẬT PAINT BOOTH NHẬT BẢN CHO ASEAN"},
+    hero_h1:{vi:'Kiến tạo <span class="accent">paint booth</span> tốt hơn từ Nhật Bản'},
+    hero_sub:{vi:"KURITA MAX SERIES tích hợp luồng khí, nhiệt, an toàn và khả năng thao tác thành một hệ thống kỹ thuật — dựa trên nhiều năm kinh nghiệm thực tế tại các đại lý ô tô và gara Nhật Bản, nay được mang đến ASEAN."},
+    hero_cta1:{vi:"Yêu cầu khảo sát hiện trường (Site Survey)"},
+    hero_cta2:{vi:"MAX nào phù hợp với bạn?"},
+    hero_meta1:{vi:"Model MAX được thiết kế"},
+    hero_meta2:{vi:"Trụ cột kỹ thuật"},
+    hero_meta3:{vi:"Lộ trình mở rộng ASEAN"},
+    hero_caption:{vi:"Sơ đồ — luồng khí, nhiệt, an toàn và khả năng thao tác được thiết kế như một hệ thống"},
+
+    problem_eyebrow:{vi:"BẮT ĐẦU TỪ VẤN ĐỀ, KHÔNG PHẢI SẢN PHẨM"},
+    problem_h2:{vi:"Bạn đang muốn giải quyết vấn đề gì?"},
+    problem_lede:{vi:"Chúng tôi không hỏi \"bạn muốn sản phẩm nào?\" trước tiên. Chúng tôi bắt đầu từ vấn đề thực tế trên xưởng của bạn — rồi mới thiết kế ngược lại để tìm đúng model MAX."},
+    prob1:{vi:"Cần một paint booth mới"}, prob2:{vi:"Luồng khí kém"}, prob3:{vi:"Lỗi bề mặt sơn"},
+    prob4:{vi:"Thời gian sấy lâu"}, prob5:{vi:"Cần thêm không gian thao tác"}, prob6:{vi:"Sơn xe cỡ lớn"},
+    flow_n1:{vi:"BƯỚC 1"}, flow_n2:{vi:"BƯỚC 2"}, flow_n3:{vi:"BƯỚC 3"}, flow_n4:{vi:"BƯỚC 4"},
+    flow1:{vi:"Vấn đề"}, flow2:{vi:"Yêu cầu kỹ thuật"}, flow3:{vi:"MAX được đề xuất"}, flow4:{vi:"Site Survey"},
+
+    why_eyebrow:{vi:"VÌ SAO CHỌN KURITA MAX"},
+    why_h2:{vi:"Vì sao các gara khắp Nhật Bản chọn KURITA"},
+    why_lede:{vi:"Không chỉ là một paint booth sản xuất tại Nhật — mà là một triết lý kỹ thuật áp dụng cho từng mét vuông của nó."},
+    why1_h:{vi:"Đã được chứng minh tại Nhật Bản"}, why1_p:{vi:"Được xây dựng từ nhiều năm kinh nghiệm tích lũy trong thị trường sửa chữa thân vỏ ô tô Nhật Bản."},
+    why2_h:{vi:"Được tin dùng trên toàn quốc"}, why2_p:{vi:"Đang hoạt động tại các đại lý ô tô và gara sửa chữa chuyên nghiệp trên khắp Nhật Bản."},
+    why3_h:{vi:"Kỹ thuật luồng khí"}, why3_p:{vi:"Cấp khí, hút khí và phân bố luồng khí được thiết kế như một hệ thống thống nhất."},
+    why4_h:{vi:"Kỹ thuật sơn & sấy"}, why4_p:{vi:"Thiết kế đồng thời cho cả quá trình sơn và quá trình sấy, không tách rời."},
+    why5_h:{vi:"An toàn & khả năng thao tác"}, why5_p:{vi:"An toàn về cấu trúc song song với ánh sáng, tầm nhìn và bố trí giúp người vận hành làm việc dễ dàng hơn."},
+    why_note:{vi:"Các phát ngôn kiểu \"Japan No.1\" chỉ được công bố sau khi định nghĩa và bằng chứng khách quan — số lượng bán, số lượng lắp đặt, phạm vi thị trường — được xác nhận cùng 株式会社栗田工業."},
+
+    series_eyebrow:{vi:"KIẾN TRÚC DANH MỤC SẢN PHẨM"},
+    series_h2:{vi:"Năm model, năm lý do lựa chọn rõ ràng"},
+    series_lede:{vi:"Trước khi đi vào thông số kỹ thuật, hãy hiểu vai trò của từng model — để các catalog không còn cạnh tranh thông tin lẫn nhau."},
+    m1_pos:{vi:"NHỎ GỌN"}, m1_msg:{vi:"Nhỏ gọn & tiết kiệm — điểm khởi đầu hiệu quả mà không cắt giảm chất lượng luồng khí."}, m1_fit:{vi:"Phù hợp nhất: xe con, gara chú trọng ngân sách"},
+    m2_pos:{vi:"CHUYÊN NGHIỆP"}, m2_msg:{vi:"Hiệu suất sơn & sấy chuyên nghiệp cho gara xe con tiêu chuẩn."}, m2_fit:{vi:"Phù hợp nhất: xe con, ưu tiên chất lượng sơn & sấy"},
+    m3_pos:{vi:"CHUYÊN NGHIỆP RỘNG"}, m3_msg:{vi:"Nhiều không gian hơn, nhiều khả năng hơn — nền tảng Advance được mở rộng cho xe lớn hơn."}, m3_fit:{vi:"Phù hợp nhất: xe con cỡ lớn, cần thêm không gian thao tác"},
+    m4_pos:{vi:"CAO CẤP"}, m4_msg:{vi:"Tầm nhìn & sự thoải mái — dành cho gara cao cấp kiểm tra kỹ như khi sơn."}, m4_fit:{vi:"Phù hợp nhất: gara cao cấp, ưu tiên tầm nhìn & sự thoải mái"},
+    m5_pos:{vi:"CHỊU TẢI NẶNG"}, m5_msg:{vi:"Được thiết kế cho xe buýt, xe tải và xe cỡ lớn mà booth tiêu chuẩn không đáp ứng được."}, m5_fit:{vi:"Phù hợp nhất: sơn xe buýt, xe tải & xe cỡ lớn"},
+
+    sel_eyebrow:{vi:"MAX NÀO PHÙ HỢP VỚI BẠN"},
+    sel_h2:{vi:"Cho chúng tôi biết về gara của bạn, chúng tôi sẽ chỉ ra MAX phù hợp"},
+    sel_lede:{vi:"Một trong những trang quan trọng nhất của website — trả lời một câu hỏi để thấy ngay model được đề xuất, trước khi xem bất kỳ thông số kỹ thuật nào."},
+    sel_q:{vi:"CHỌN MÔ TẢ ĐÚNG NHẤT VỀ GARA CỦA BẠN"},
+    sel_opt1:{vi:"Xe con — nhỏ gọn & tiết kiệm"}, sel_opt2:{vi:"Xe con — ưu tiên chất lượng sơn & sấy"},
+    sel_opt3:{vi:"Xe con cỡ lớn — cần thêm không gian thao tác"}, sel_opt4:{vi:"Gara cao cấp — ưu tiên tầm nhìn & sự thoải mái"},
+    sel_opt5:{vi:"Xe buýt, xe tải & xe cỡ lớn"},
+    sel_result_badge:{vi:"ĐỀ XUẤT"}, sel_result_cta:{vi:"Yêu cầu Site Survey cho model này"},
+
+    eng_eyebrow:{vi:"KỸ THUẬT"},
+    eng_h2:{vi:"Một hệ thống: luồng khí, nhiệt, an toàn, khả năng thao tác"},
+    eng_lede:{vi:"Điểm mạnh của KURITA MAX không nằm ở việc sản xuất tại Nhật — mà ở việc bốn yếu tố này được thiết kế cùng nhau, không phải ghép rời từng phần."},
+    eng1_h:{vi:"Luồng khí"}, eng1_p:{vi:"Cấp khí, hút khí và phân bố được thiết kế để luồng khí đều và có thể kiểm soát trong toàn bộ booth."},
+    eng2_h:{vi:"Nhiệt"}, eng2_p:{vi:"Quá trình sấy và hiệu quả nhiệt được thiết kế đồng thời, không phải là yếu tố bổ sung sau cùng."},
+    eng3_h:{vi:"An toàn"}, eng3_p:{vi:"Cấu trúc an toàn và điều kiện vận hành được thiết kế để bảo vệ người bên trong."},
+    eng4_h:{vi:"Khả năng thao tác"}, eng4_p:{vi:"Ánh sáng, không gian làm việc, tầm nhìn và đường di chuyển của người vận hành."},
+
+    app_eyebrow:{vi:"ỨNG DỤNG"},
+    app_h2:{vi:"Thiết kế cho đúng loại xe đi qua cửa xưởng của bạn"},
+    app1:{vi:"Xe con"}, app2:{vi:"SUV"}, app3:{vi:"Xe buýt"}, app4:{vi:"Xe tải"},
+
+    case_eyebrow:{vi:"CASE STUDY"},
+    case_h2:{vi:"Đã được chứng minh tại Nhật Bản. Tiếp theo: Việt Nam."},
+    case_main_eyebrow:{vi:"THÀNH TÍCH TẠI NHẬT BẢN"},
+    case_main_p:{vi:"KURITA MAX được lắp đặt tại các đại lý ô tô, gara độc lập và gara quy mô lớn trên khắp Nhật Bản. Khi được phép công khai tên công ty và hình ảnh, chúng tôi sẽ sử dụng trực tiếp; nếu không, case sẽ được trình bày ẩn danh — ví dụ \"Đại lý ô tô lớn tại Nhật Bản\" hoặc \"Gara chuyên nghiệp tại Nhật Bản\"."},
+    case_tag1:{vi:"Đại lý ô tô"}, case_tag2:{vi:"Gara độc lập"}, case_tag3:{vi:"Xe cỡ lớn"}, case_tag4:{vi:"Gara quy mô lớn"}, case_tag5:{vi:"Thay thế booth cũ"},
+    case_vn_eyebrow:{vi:"CASE QUAN TRỌNG NHẤT SẮP TỚI"},
+    case_vn_h:{vi:"Lắp đặt đầu tiên tại Việt Nam"},
+    case_vn_p:{vi:"Case study quan trọng nhất cho việc mở rộng ASEAN vẫn chưa tồn tại — nó bắt đầu từ Site Survey có chất lượng đầu tiên tại Việt Nam."},
+
+    survey_eyebrow:{vi:"CÁCH CHÚNG TÔI LÀM VIỆC — KHÔNG BÁO GIÁ TRƯỚC"},
+    survey_h2:{vi:"Site Survey, trước khi Báo giá"},
+    survey_lede:{vi:"CTA chính của chúng tôi là Site Survey, không phải yêu cầu báo giá — để vấn đề được xác định đúng trước khi giá cả bước vào cuộc trò chuyện."},
+    step1_h:{vi:"Khảo sát hiện trường"}, step1_p:{vi:"Kiểm tra tại chỗ xưởng hiện tại, loại xe và các ràng buộc."},
+    step2_h:{vi:"Xác định vấn đề"}, step2_p:{vi:"Xác định rõ các vấn đề về luồng khí, nhiệt, an toàn và khả năng thao tác."},
+    step3_h:{vi:"Thiết kế quy trình"}, step3_p:{vi:"Quy trình sơn và sấy được thiết kế phù hợp với hoạt động của bạn."},
+    step4_h:{vi:"Đề xuất thiết bị"}, step4_p:{vi:"Một model MAX cụ thể được chọn phù hợp với yêu cầu đã xác định."},
+    step5_h:{vi:"Báo giá"}, step5_p:{vi:"Đề xuất thương mại dựa trên giải pháp kỹ thuật, không phải phỏng đoán."},
+
+    about_eyebrow:{vi:"GIỚI THIỆU KURITA BOOTH GLOBAL"},
+    about_h2:{vi:"Một hệ thống bán hàng mới, không phải một website được dịch lại"},
+    about_p1:{vi:"KURITA BOOTH GLOBAL là nền tảng Paint Booth hướng ra thị trường nước ngoài của 株式会社栗田工業 (Kurita Kogyo Co., Ltd.), nhà sản xuất Nhật Bản với nhiều năm kinh nghiệm trong lĩnh vực thiết bị sơn sửa chữa thân vỏ ô tô. Phase 1 tập trung hoàn toàn vào KURITA MAX SERIES, khởi động tại Việt Nam."},
+    about_p2:{vi:"Đây là sự thu hẹp phạm vi có chủ đích: dù Kurita Kogyo còn sản xuất lò sấy, thiết bị pha màu, hệ thống hút cục bộ và kho vật liệu nguy hiểm, cửa vào của thị trường ASEAN được cố định ở Paint Booth = KURITA MAX SERIES — để điều đầu tiên thị trường ghi nhận là một thông điệp duy nhất, mạnh mẽ."},
+    about_principle:{vi:"Chúng tôi không dịch lại một website tiếng Nhật. Chúng tôi xây dựng một hệ thống bán hàng mới cho KURITA MAX tại ASEAN."},
+    expansion_eyebrow:{vi:"MỞ RỘNG THỊ TRƯỜNG"},
+    phase1_label:{vi:"Phase 1: Tiếng Anh + Tiếng Việt"}, phase2_label:{vi:"Phase 2: Thái, Indonesia, Malay"},
+
+    cta_eyebrow:{vi:"BẮT ĐẦU"},
+    cta_h2:{vi:"Yêu cầu khảo sát Paint Booth (Site Survey)"},
+    cta_lede:{vi:"Cho chúng tôi biết về xưởng của bạn, chúng tôi sẽ sắp xếp khảo sát hiện trường — ảnh, kích thước và thông tin quy trình trước, đề xuất thiết bị sau."},
+    cta_btn1:{vi:"Gửi email tới contact@kuritabooth.global"}, cta_btn2:{vi:"Xem MAX Series"},
+    contact_h1:{vi:"TÊN MIỀN"}, contact_h2:{vi:"ĐỐI TÁC BÁN HÀNG — VIỆT NAM"}, contact_h3:{vi:"NHÀ SẢN XUẤT"},
+
+    footer_1:{vi:"© KURITA BOOTH GLOBAL — Hệ thống Paint Booth cho ASEAN"},
+    footer_2:{vi:"Phase 1: Việt Nam · Tiếng Anh + Tiếng Việt"}
+  };
+
+  var originals = {};
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    originals[el.getAttribute('data-i18n') + '::' + Array.prototype.indexOf.call(document.querySelectorAll('[data-i18n]'), el)] = el.innerHTML;
+  });
+  // store original EN html keyed by element reference
+  var elList = document.querySelectorAll('[data-i18n]');
+  var enHtml = [];
+  elList.forEach(function(el){ enHtml.push(el.innerHTML); });
+
+  var langBtns = document.querySelectorAll('.langtoggle button');
+  langBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var lang = btn.getAttribute('data-lang');
+      langBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.body.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang === 'vi' ? 'vi' : 'en');
+      elList.forEach(function(el, i){
+        var key = el.getAttribute('data-i18n');
+        if(lang === 'vi' && dict[key] && dict[key].vi){
+          el.innerHTML = dict[key].vi;
+        } else {
+          el.innerHTML = enHtml[i];
+        }
+      });
+      // refresh selector result text if visible
+      var activeOpt = document.querySelector('.selector-opt.active');
+      if(activeOpt){ activeOpt.click.call ? null : null; }
+      if(resultBox.classList.contains('show') && activeOpt){
+        var key2 = activeOpt.getAttribute('data-model');
+        var m = models[key2];
+        resultText.textContent = lang === 'vi' ? m.text_vi : m.text_en;
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
