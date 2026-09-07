@@ -1,0 +1,5 @@
+/* Editor-only styling for our custom blocks' control panels (repeaters,
+   media pickers). Never loaded on the front end. */
+.kbg-editor-repeater{margin-bottom: 8px;}
+.kbg-editor-repeater-row{background:#f6f7f7;}
+.kbg-editor-media img{border:1px solid #ddd;border-radius:4px;}

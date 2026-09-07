@@ -1,0 +1,19 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/cta-banner",
+	"title": "CTA Banner",
+	"category": "kbg-sections",
+	"icon": "megaphone",
+	"description": "Dark call-to-action banner with up to two buttons.",
+	"supports": { "html": false },
+	"attributes": {
+		"heading": { "type": "string", "default": "Ready to solve your paint booth problem?" },
+		"text": { "type": "string", "default": "" },
+		"primaryText": { "type": "string", "default": "Request a Site Survey" },
+		"primaryUrl": { "type": "string", "default": "" },
+		"secondaryText": { "type": "string", "default": "" },
+		"secondaryUrl": { "type": "string", "default": "" }
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

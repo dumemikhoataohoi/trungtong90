@@ -1,0 +1,20 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/case-studies-grid",
+	"title": "Case Studies Grid",
+	"category": "kbg-sections",
+	"icon": "portfolio",
+	"description": "Automatically lists published Case Studies (managed under Case Studies in the admin menu).",
+	"supports": { "html": false },
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Case Studies" },
+		"heading": { "type": "string", "default": "Where KURITA MAX is already at work" },
+		"intro": { "type": "string", "default": "" },
+		"sectionStyle": { "type": "string", "default": "default", "enum": ["default", "alt"] },
+		"limit": { "type": "number", "default": -1 },
+		"footerLinkText": { "type": "string", "default": "" },
+		"footerLinkUrl": { "type": "string", "default": "" }
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

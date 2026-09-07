@@ -1,0 +1,25 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/track-record",
+	"title": "Track Record (Navy stats section)",
+	"category": "kbg-sections",
+	"icon": "chart-bar",
+	"description": "Two-column dark navy section: heading/text/button on the left, a stat row on the right (Japan Track Record).",
+	"supports": { "html": false },
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Japan Track Record" },
+		"heading": { "type": "string", "default": "" },
+		"text": { "type": "string", "default": "" },
+		"buttonText": { "type": "string", "default": "" },
+		"buttonUrl": { "type": "string", "default": "" },
+		"stats": {
+			"type": "array",
+			"default": [
+				{ "number": "5", "label": "Engineered Models" },
+				{ "number": "4", "label": "Engineering Disciplines" }
+			]
+		}
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

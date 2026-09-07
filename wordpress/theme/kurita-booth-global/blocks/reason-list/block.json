@@ -1,0 +1,19 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/reason-list",
+	"title": "Numbered Reason List",
+	"category": "kbg-sections",
+	"icon": "list-view",
+	"description": "Big numbered list (01, 02, 03...) used on the Why KURITA MAX detail page.",
+	"supports": { "html": false },
+	"attributes": {
+		"sectionStyle": { "type": "string", "default": "default", "enum": ["default", "alt"] },
+		"items": {
+			"type": "array",
+			"default": [{ "heading": "Reason heading", "text": "Reason description." }]
+		},
+		"noteText": { "type": "string", "default": "" }
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

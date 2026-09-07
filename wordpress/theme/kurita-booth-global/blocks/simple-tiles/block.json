@@ -1,0 +1,23 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/simple-tiles",
+	"title": "Simple Tiles",
+	"category": "kbg-sections",
+	"icon": "screenoptions",
+	"description": "Small label/value tile row — brand structure tiers or the market expansion roadmap.",
+	"supports": { "html": false },
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "" },
+		"heading": { "type": "string", "default": "" },
+		"intro": { "type": "string", "default": "" },
+		"style": { "type": "string", "default": "light", "enum": ["light", "navy"] },
+		"sectionStyle": { "type": "string", "default": "alt", "enum": ["default", "alt", "navy"] },
+		"columns": { "type": "number", "default": 4 },
+		"items": {
+			"type": "array",
+			"default": [{ "label": "Label", "value": "Value", "note": "" }]
+		}
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

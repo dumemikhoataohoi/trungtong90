@@ -1,0 +1,16 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/compare-table",
+	"title": "MAX Series Compare Table",
+	"category": "kbg-sections",
+	"icon": "editor-table",
+	"description": "Comparison table built automatically from published MAX Series products.",
+	"supports": { "html": false, "multiple": false },
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Compare" },
+		"heading": { "type": "string", "default": "MAX Series at a glance" },
+		"sectionStyle": { "type": "string", "default": "alt", "enum": ["default", "alt"] }
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

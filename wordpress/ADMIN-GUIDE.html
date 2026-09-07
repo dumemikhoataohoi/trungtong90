@@ -1,0 +1,699 @@
+<title>KURITA Admin Handbook</title>
+<style>
+:root{
+  --ink:#0a1a2f;
+  --ink-soft:#3a4a63;
+  --paper:#f6f6f3;
+  --surface:#ffffff;
+  --line:#e5e3dc;
+  --steel:#5b6b80;
+  --steel-soft:#8b97a8;
+  --red:#c8102e;
+  --red-dim:#8f0c20;
+  --red-tint:#fdeef0;
+  --code-bg:#0f2340;
+  --code-text:#dce6f5;
+  --font-ui:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SFMono-Regular',Consolas,monospace;
+  --maxw:760px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#eef1f6;
+    --ink-soft:#b9c4d3;
+    --paper:#0c1420;
+    --surface:#111b2b;
+    --line:#233047;
+    --steel:#9aa9bd;
+    --steel-soft:#6d7d93;
+    --red:#ff5470;
+    --red-dim:#ff8a9c;
+    --red-tint:#2a1420;
+    --code-bg:#060e1c;
+    --code-text:#b9d0f0;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#eef1f6;
+  --ink-soft:#b9c4d3;
+  --paper:#0c1420;
+  --surface:#111b2b;
+  --line:#233047;
+  --steel:#9aa9bd;
+  --steel-soft:#6d7d93;
+  --red:#ff5470;
+  --red-dim:#ff8a9c;
+  --red-tint:#2a1420;
+  --code-bg:#060e1c;
+  --code-text:#b9d0f0;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--font-ui);background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.01em;line-height:1.2;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--red);text-decoration:none}
+a:hover{text-decoration:underline}
+code,.kbd{font-family:var(--font-mono);font-size:.85em}
+[data-lang="en"] .lang-vi{display:none}
+[data-lang="vi"] .lang-en{display:none}
+
+/* ---------- layout shell ---------- */
+.shell{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:100vh}
+.sidebar{
+  position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;
+  background:var(--surface);border-right:1px solid var(--line);padding:28px 22px;
+}
+.brand{display:block;margin-bottom:22px}
+.brand-name{font-size:16px;font-weight:800}
+.brand-name b{color:var(--red)}
+.brand-tag{display:block;font-size:11px;color:var(--steel-soft);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+
+.langtoggle{display:flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;margin-bottom:24px;width:fit-content}
+.langtoggle button{background:transparent;border:0;font-family:inherit;font-size:12px;font-weight:700;padding:6px 14px;color:var(--steel);cursor:pointer}
+.langtoggle button.is-active{background:var(--ink);color:var(--paper)}
+
+.toc{display:flex;flex-direction:column;gap:2px}
+.toc a{
+  display:block;padding:8px 10px;border-radius:6px;font-size:13.5px;font-weight:600;
+  color:var(--ink-soft);
+}
+.toc a:hover{background:var(--red-tint);color:var(--red);text-decoration:none}
+.toc .toc-num{display:inline-block;width:20px;color:var(--steel-soft);font-family:var(--font-mono);font-size:11px}
+
+.main{padding:56px 48px 120px;max-width:calc(var(--maxw) + 96px);width:100%}
+.doc-header{max-width:var(--maxw);margin-bottom:56px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+.eyebrow::before{content:"";width:20px;height:2px;background:var(--red)}
+.doc-header h1{font-size:clamp(28px,4vw,38px);margin-top:14px}
+.doc-header .lede{margin-top:14px;font-size:16.5px;color:var(--steel);max-width:62ch}
+
+section.doc-section{max-width:var(--maxw);padding-top:64px;border-top:1px solid var(--line);margin-top:0}
+section.doc-section:first-of-type{border-top:none}
+.doc-section h2{font-size:24px;display:flex;align-items:baseline;gap:12px}
+.doc-section h2 .step-no{font-family:var(--font-mono);font-size:14px;color:var(--red);font-weight:700}
+.doc-section .section-lede{margin-top:10px;color:var(--steel);font-size:15.5px}
+.doc-section h3{font-size:16.5px;margin-top:32px;margin-bottom:12px}
+
+/* ---------- step list ---------- */
+.steps{display:flex;flex-direction:column;gap:0;margin-top:20px}
+.step{display:grid;grid-template-columns:32px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.step:first-child{border-top:none}
+.step-badge{
+  width:26px;height:26px;border-radius:7px;background:var(--ink);color:var(--paper);
+  display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);
+  font-size:12px;font-weight:700;margin-top:2px;
+}
+.step-body h4{font-size:14.5px;font-weight:700;margin-bottom:4px}
+.step-body p{font-size:14px;color:var(--steel)}
+
+/* ---------- callouts ---------- */
+.callout{
+  border-left:3px solid var(--steel-soft);background:var(--surface);border-radius:0 8px 8px 0;
+  padding:14px 18px;margin:20px 0;font-size:14px;color:var(--ink-soft);
+}
+.callout b{color:var(--ink)}
+.callout.tip{border-left-color:var(--red)}
+.callout.tip::before{content:"Tip / Mẹo — ";font-weight:700;color:var(--red)}
+
+/* ---------- field reference table ---------- */
+.field-table{width:100%;border-collapse:collapse;margin:18px 0;font-size:13.5px}
+.field-table th, .field-table td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.field-table thead th{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--steel-soft);font-weight:600;border-bottom:2px solid var(--line);
+}
+.field-table td.field-name code{background:var(--code-bg);color:var(--code-text);padding:2px 6px;border-radius:4px}
+.table-wrap{overflow-x:auto}
+
+/* ---------- ui mock ---------- */
+.uimock{
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);
+  margin:20px 0;box-shadow:0 1px 2px rgba(10,26,47,.05);
+}
+.uimock-bar{
+  display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--paper);
+  border-bottom:1px solid var(--line);font-size:12px;color:var(--steel);
+}
+.uimock-block{
+  margin:14px;padding:16px;border:1.5px dashed var(--steel-soft);border-radius:8px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.uimock-block-label{font-size:13.5px;font-weight:700}
+.uimock-controls{display:flex;gap:6px}
+.uimock-btn{
+  width:26px;height:26px;border-radius:6px;background:var(--paper);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--steel);
+}
+
+/* ---------- pill / badge ---------- */
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:100px;background:var(--red-tint);color:var(--red)}
+
+/* ---------- lang copy table ---------- */
+.copy-table{width:100%;border-collapse:collapse;margin:14px 0 26px;font-size:13.5px}
+.copy-table th{
+  font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--steel-soft);text-align:left;padding:8px 12px;border-bottom:2px solid var(--line);
+}
+.copy-table td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.copy-table td.en{color:var(--ink-soft)}
+.copy-table td.vi{color:var(--ink);font-weight:500}
+.copy-table tr:hover{background:var(--red-tint)}
+.block-group{margin-top:36px}
+.block-group-title{
+  display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;
+  color:var(--steel);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px;
+}
+.block-group-title .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+
+footer.doc-footer{max-width:var(--maxw);margin-top:80px;padding-top:24px;border-top:1px solid var(--line);font-size:12.5px;color:var(--steel-soft)}
+
+@media (max-width: 900px){
+  .shell{grid-template-columns:1fr}
+  .sidebar{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--line)}
+  .main{padding:40px 22px 100px}
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<div class="shell">
+  <aside class="sidebar">
+    <a href="#top" class="brand">
+      <span class="brand-name">KURITA <b>BOOTH</b> GLOBAL</span>
+      <span class="brand-tag">WordPress Admin Handbook</span>
+    </a>
+    <div class="langtoggle">
+      <button data-set-lang="en" class="is-active">EN</button>
+      <button data-set-lang="vi">VI</button>
+    </div>
+    <nav class="toc">
+      <a href="#overview"><span class="toc-num">00</span> <span class="lang-en">Overview</span><span class="lang-vi">Tổng quan</span></a>
+      <a href="#login"><span class="toc-num">01</span> <span class="lang-en">Logging in</span><span class="lang-vi">Đăng nhập</span></a>
+      <a href="#sections"><span class="toc-num">02</span> <span class="lang-en">Pages &amp; sections</span><span class="lang-vi">Trang &amp; Section</span></a>
+      <a href="#maxseries"><span class="toc-num">03</span> <span class="lang-en">MAX Series</span><span class="lang-vi">MAX Series</span></a>
+      <a href="#casestudies"><span class="toc-num">04</span> <span class="lang-en">Case Studies</span><span class="lang-vi">Case Study</span></a>
+      <a href="#brochures"><span class="toc-num">05</span> <span class="lang-en">Brochures</span><span class="lang-vi">Brochure</span></a>
+      <a href="#settings"><span class="toc-num">06</span> <span class="lang-en">Site Settings</span><span class="lang-vi">Cài đặt chung</span></a>
+      <a href="#vietnamese"><span class="toc-num">07</span> <span class="lang-en">Vietnamese content</span><span class="lang-vi">Nội dung Tiếng Việt</span></a>
+      <a href="#seo"><span class="toc-num">08</span> <span class="lang-en">SEO &amp; images</span><span class="lang-vi">SEO &amp; hình ảnh</span></a>
+      <a href="#faq"><span class="toc-num">09</span> <span class="lang-en">Troubleshooting</span><span class="lang-vi">Xử lý sự cố</span></a>
+    </nav>
+  </aside>
+
+  <main class="main" id="top">
+    <div class="doc-header">
+      <span class="eyebrow"><span class="lang-en">Admin Handbook</span><span class="lang-vi">Sổ tay Quản trị</span></span>
+      <h1>
+        <span class="lang-en">Editing kuritabooth.global without touching code</span>
+        <span class="lang-vi">Chỉnh sửa kuritabooth.global mà không cần biết code</span>
+      </h1>
+      <p class="lede">
+        <span class="lang-en">This handbook covers everything a content editor needs day to day: editing text and images, reordering page sections, managing the 5 MAX Series products, publishing Case Studies, and switching between English and Vietnamese.</span>
+        <span class="lang-vi">Sổ tay này bao gồm mọi thao tác biên tập viên cần làm hàng ngày: sửa văn bản/hình ảnh, sắp xếp lại các section trên trang, quản lý 5 sản phẩm MAX Series, đăng Case Study, và chuyển đổi giữa Tiếng Anh và Tiếng Việt.</span>
+      </p>
+    </div>
+
+    <!-- 00 OVERVIEW -->
+    <section class="doc-section" id="overview">
+      <h2><span class="step-no">00</span> <span class="lang-en">How the site is organized</span><span class="lang-vi">Cấu trúc của website</span></h2>
+      <p class="section-lede">
+        <span class="lang-en">The visual design (colors, layout, fonts, animations) is fixed and controlled — you cannot break it by editing content. What you control is text, images, PDFs, and the order/presence of sections.</span>
+        <span class="lang-vi">Thiết kế hình ảnh (màu sắc, bố cục, font chữ, hiệu ứng) được cố định và kiểm soát — bạn không thể làm hỏng nó khi chỉnh sửa nội dung. Những gì bạn kiểm soát là văn bản, hình ảnh, PDF, và thứ tự/sự hiện diện của các section.</span>
+      </p>
+      <div class="table-wrap">
+        <table class="field-table">
+          <thead><tr>
+            <th><span class="lang-en">WP Admin menu</span><span class="lang-vi">Menu trong WP Admin</span></th>
+            <th><span class="lang-en">Controls</span><span class="lang-vi">Kiểm soát</span></th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="field-name"><code>Pages</code></td><td><span class="lang-en">The 10 site pages — Home, Why KURITA MAX, MAX Series, Which MAX, Engineering, Applications, Case Studies, About, Site Survey, Contact</span><span class="lang-vi">10 trang của website — Home, Why KURITA MAX, MAX Series, Which MAX, Engineering, Applications, Case Studies, About, Site Survey, Contact</span></td></tr>
+            <tr><td class="field-name"><code>MAX Series</code></td><td><span class="lang-en">The 5 products (Eco Max → G-Max)</span><span class="lang-vi">5 sản phẩm (Eco Max → G-Max)</span></td></tr>
+            <tr><td class="field-name"><code>MAX Series → Which MAX Rules</code></td><td><span class="lang-en">The "what problem are you solving?" table on Home &amp; Which MAX</span><span class="lang-vi">Bảng "bạn đang gặp vấn đề gì?" trên Home &amp; Which MAX</span></td></tr>
+            <tr><td class="field-name"><code>Case Studies</code></td><td><span class="lang-en">Add / edit / publish / unpublish case studies</span><span class="lang-vi">Thêm / sửa / đăng / gỡ case study</span></td></tr>
+            <tr><td class="field-name"><code>Brochures</code></td><td><span class="lang-en">PDF files + download button labels</span><span class="lang-vi">File PDF + nhãn nút tải</span></td></tr>
+            <tr><td class="field-name"><code>Site Settings</code></td><td><span class="lang-en">Top bar text, footer text, contact details</span><span class="lang-vi">Văn bản thanh trên cùng, footer, thông tin liên hệ</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 01 LOGIN -->
+    <section class="doc-section" id="login">
+      <h2><span class="step-no">01</span> <span class="lang-en">Logging in</span><span class="lang-vi">Đăng nhập</span></h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-badge">1</div>
+          <div class="step-body">
+            <h4><span class="lang-en">Go to your admin URL</span><span class="lang-vi">Truy cập URL quản trị</span></h4>
+            <p><code>https://kuritabooth.global/wp-admin/</code></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">2</div>
+          <div class="step-body">
+            <h4><span class="lang-en">Sign in with the account your developer created</span><span class="lang-vi">Đăng nhập bằng tài khoản do lập trình viên tạo</span></h4>
+            <p><span class="lang-en">You'll land on the Dashboard — the left sidebar is your control panel for everything in this handbook.</span><span class="lang-vi">Bạn sẽ vào Dashboard — thanh bên trái là bảng điều khiển cho mọi thứ trong sổ tay này.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 SECTIONS -->
+    <section class="doc-section" id="sections">
+      <h2><span class="step-no">02</span> <span class="lang-en">Editing pages &amp; reordering sections</span><span class="lang-vi">Chỉnh sửa trang &amp; sắp xếp section</span></h2>
+      <p class="section-lede">
+        <span class="lang-en">Open <b>Pages → All Pages</b> and click any page. Each visual section (Hero, Why KURITA MAX cards, MAX Series grid, CTA banner...) is one block in the editor.</span>
+        <span class="lang-vi">Vào <b>Pages → All Pages</b> và click vào bất kỳ trang nào. Mỗi section hiển thị (Hero, thẻ Why KURITA MAX, lưới MAX Series, banner CTA...) là một block trong trình soạn thảo.</span>
+      </p>
+
+      <div class="uimock">
+        <div class="uimock-bar">
+          <span class="lang-en">Block editor — click a section to select it</span>
+          <span class="lang-vi">Trình soạn thảo block — click vào 1 section để chọn</span>
+        </div>
+        <div class="uimock-block">
+          <span class="uimock-block-label">Hero</span>
+          <div class="uimock-controls"><span class="uimock-btn">⠿</span><span class="uimock-btn">↑</span><span class="uimock-btn">↓</span><span class="uimock-btn">⋮</span></div>
+        </div>
+        <div class="uimock-block">
+          <span class="uimock-block-label">Icon Card Grid — Why KURITA MAX</span>
+          <div class="uimock-controls"><span class="uimock-btn">⠿</span><span class="uimock-btn">↑</span><span class="uimock-btn">↓</span><span class="uimock-btn">⋮</span></div>
+        </div>
+        <div class="uimock-block">
+          <span class="uimock-block-label">MAX Series Grid</span>
+          <div class="uimock-controls"><span class="uimock-btn">⠿</span><span class="uimock-btn">↑</span><span class="uimock-btn">↓</span><span class="uimock-btn">⋮</span></div>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-badge">↕</div>
+          <div class="step-body">
+            <h4><span class="lang-en">Reorder a section</span><span class="lang-vi">Sắp xếp lại section</span></h4>
+            <p><span class="lang-en">Select the block, then use the ↑ / ↓ arrows in its toolbar, or drag the ⠿ handle.</span><span class="lang-vi">Chọn block, sau đó dùng mũi tên ↑ / ↓ trên thanh công cụ, hoặc kéo thả tay cầm ⠿.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">＋</div>
+          <div class="step-body">
+            <h4><span class="lang-en">Add a section</span><span class="lang-vi">Thêm section</span></h4>
+            <p><span class="lang-en">Click the <span class="kbd">+</span> button where you want it, type "KURITA" in the search box — every section type for this site is grouped under <b>KURITA Sections</b>. Pick one and fill in its fields on the right.</span><span class="lang-vi">Click nút <span class="kbd">+</span> ở vị trí muốn thêm, gõ "KURITA" vào ô tìm kiếm — mọi loại section của website được nhóm trong mục <b>KURITA Sections</b>. Chọn 1 loại rồi điền nội dung ở panel bên phải.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">✕</div>
+          <div class="step-body">
+            <h4><span class="lang-en">Remove a section</span><span class="lang-vi">Xoá section</span></h4>
+            <p><span class="lang-en">Select the block → click the <span class="kbd">⋮</span> menu → Remove Block.</span><span class="lang-vi">Chọn block → click menu <span class="kbd">⋮</span> → Remove Block.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">✎</div>
+          <div class="step-body">
+            <h4><span class="lang-en">Edit a section's content</span><span class="lang-vi">Sửa nội dung section</span></h4>
+            <p><span class="lang-en">Select the block — its editable fields (heading, text, image, buttons) appear in the panel on the right. The preview below updates live and always matches the real site exactly.</span><span class="lang-vi">Chọn block — các trường có thể sửa (tiêu đề, văn bản, hình ảnh, nút bấm) hiện ra ở panel bên phải. Bản xem trước bên dưới cập nhật ngay và luôn khớp chính xác với website thật.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <span class="lang-en"><b>MAX Series Grid</b>, <b>Compare Table</b>, <b>Case Studies Grid</b> and <b>Choose Your MAX</b> blocks have no content fields of their own — they pull live from MAX Series / Case Studies / Which MAX Rules automatically. Add a product or case study there, and it appears on every page using that block, with no extra step.</span>
+        <span class="lang-vi"><b>MAX Series Grid</b>, <b>Compare Table</b>, <b>Case Studies Grid</b> và <b>Choose Your MAX</b> không có trường nội dung riêng — chúng tự động lấy dữ liệu từ MAX Series / Case Studies / Which MAX Rules. Thêm 1 sản phẩm hoặc case study ở đó, nó sẽ tự xuất hiện trên mọi trang dùng block này, không cần thêm bước nào.</span>
+      </div>
+
+      <h3><span class="lang-en">Click "Update" to publish your changes</span><span class="lang-vi">Click "Update" để đăng thay đổi</span></h3>
+      <p style="font-size:14px;color:var(--steel)">
+        <span class="lang-en">Nothing goes live until you click the blue Update button, top right. You can safely experiment — changes only save when you click it.</span>
+        <span class="lang-vi">Không có gì được đăng lên cho đến khi bạn click nút Update màu xanh ở góc trên bên phải. Bạn có thể thử nghiệm thoải mái — thay đổi chỉ được lưu khi bạn click nút đó.</span>
+      </p>
+    </section>
+
+    <!-- 03 MAX SERIES -->
+    <section class="doc-section" id="maxseries">
+      <h2><span class="step-no">03</span> <span class="lang-en">Managing MAX Series products</span><span class="lang-vi">Quản lý sản phẩm MAX Series</span></h2>
+      <p class="section-lede">
+        <span class="lang-en">MAX Series → All MAX Products. Click a product (or "Add New" for a future 6th model) to edit its details.</span>
+        <span class="lang-vi">MAX Series → All MAX Products. Click vào 1 sản phẩm (hoặc "Add New" cho model thứ 6 trong tương lai) để sửa chi tiết.</span>
+      </p>
+      <div class="table-wrap">
+        <table class="field-table">
+          <thead><tr><th><span class="lang-en">Field</span><span class="lang-vi">Trường</span></th><th><span class="lang-en">What it is</span><span class="lang-vi">Ý nghĩa</span></th></tr></thead>
+          <tbody>
+            <tr><td class="field-name"><code>Title</code></td><td><span class="lang-en">Product name (e.g. "Eco Max")</span><span class="lang-vi">Tên sản phẩm (vd: "Eco Max")</span></td></tr>
+            <tr><td class="field-name"><code>Content editor</code></td><td><span class="lang-en">The long description paragraph</span><span class="lang-vi">Đoạn mô tả dài</span></td></tr>
+            <tr><td class="field-name"><code>Featured Image</code></td><td><span class="lang-en">Main product photo</span><span class="lang-vi">Ảnh chính của sản phẩm</span></td></tr>
+            <tr><td class="field-name"><code>Position badge</code></td><td><span class="lang-en">Compact / Professional / Wide Professional / Premium / Heavy Duty — the colored pill</span><span class="lang-vi">Compact / Professional / Wide Professional / Premium / Heavy Duty — nhãn màu</span></td></tr>
+            <tr><td class="field-name"><code>Accent color</code></td><td><span class="lang-en">One of the 5 fixed brand colors (kept controlled on purpose)</span><span class="lang-vi">1 trong 5 màu thương hiệu cố định (chủ đích kiểm soát)</span></td></tr>
+            <tr><td class="field-name"><code>Main message</code></td><td><span class="lang-en">Short tagline, e.g. "Compact &amp; Economic"</span><span class="lang-vi">Khẩu hiệu ngắn, vd: "Compact &amp; Economic"</span></td></tr>
+            <tr><td class="field-name"><code>Best For</code></td><td><span class="lang-en">Who this model suits, e.g. "Passenger Car / Compact &amp; Budget"</span><span class="lang-vi">Model phù hợp với ai, vd: "Passenger Car / Compact &amp; Budget"</span></td></tr>
+            <tr><td class="field-name"><code>Features / Specs / Gallery</code></td><td><span class="lang-en">Click "+ Add row" to add as many as needed; the ✕ removes a row</span><span class="lang-vi">Click "+ Add row" để thêm bao nhiêu dòng tuỳ ý; nút ✕ để xoá 1 dòng</span></td></tr>
+            <tr><td class="field-name"><code>Brochure PDF</code></td><td><span class="lang-en">Pick one from Brochures (create it there first — see §05)</span><span class="lang-vi">Chọn từ Brochures (tạo ở đó trước — xem mục 05)</span></td></tr>
+            <tr><td class="field-name"><code>Order</code> (Page Attributes)</td><td><span class="lang-en">A number — lower shows first in the grid (Eco Max = 0, G-Max = 4)</span><span class="lang-vi">Một số — số nhỏ hơn hiện trước trong lưới (Eco Max = 0, G-Max = 4)</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout">
+        <span class="lang-en">Product specs and technical claims should be confirmed with 株式会社栗田工業 before publishing, per the project's technical-approval requirement.</span>
+        <span class="lang-vi">Thông số kỹ thuật và các tuyên bố kỹ thuật cần được 株式会社栗田工業 xác nhận trước khi đăng, theo yêu cầu phê duyệt kỹ thuật của dự án.</span>
+      </div>
+    </section>
+
+    <!-- 04 CASE STUDIES -->
+    <section class="doc-section" id="casestudies">
+      <h2><span class="step-no">04</span> <span class="lang-en">Publishing Case Studies</span><span class="lang-vi">Đăng Case Study</span></h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-badge">1</div>
+          <div class="step-body"><h4>Case Studies → Add New</h4></div>
+        </div>
+        <div class="step">
+          <div class="step-badge">2</div>
+          <div class="step-body">
+            <h4><span class="lang-en">Fill in Title, Problem, Solution, Result, Location</span><span class="lang-vi">Điền Title, Problem, Solution, Result, Location</span></h4>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">3</div>
+          <div class="step-body">
+            <h4><span class="lang-en">Tick a Customer Type on the right (Car Dealer, Independent Repair Shop...)</span><span class="lang-vi">Chọn Customer Type ở bên phải (Car Dealer, Independent Repair Shop...)</span></h4>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">4</div>
+          <div class="step-body">
+            <h4><span class="lang-en">Optional: check "Highlight this case" for a special red-outlined card (like "First Vietnam Installation")</span><span class="lang-vi">Tuỳ chọn: tick "Highlight this case" để có khung thẻ viền đỏ đặc biệt (như "First Vietnam Installation")</span></h4>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">5</div>
+          <div class="step-body">
+            <h4><span class="lang-en">Publish. To take one down later, edit it and change status to Draft — never delete unless you're sure you won't need it again</span><span class="lang-vi">Publish. Để gỡ sau này, sửa bài và đổi trạng thái sang Draft — chỉ xoá hẳn khi chắc chắn không cần lại</span></h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 BROCHURES -->
+    <section class="doc-section" id="brochures">
+      <h2><span class="step-no">05</span> <span class="lang-en">Brochures</span><span class="lang-vi">Brochure</span></h2>
+      <p class="section-lede">
+        <span class="lang-en"><b>Brochures → Add New</b> → give it a title → "Select PDF" and choose the file → set the download button text (e.g. "Download Brochure (PDF)") → set a cover thumbnail as Featured Image → Publish. Then go to the relevant MAX product and pick this brochure from its "Brochure PDF" dropdown.</span>
+        <span class="lang-vi"><b>Brochures → Add New</b> → đặt tiêu đề → "Select PDF" và chọn file → đặt nội dung nút tải (vd: "Download Brochure (PDF)") → đặt ảnh bìa ở Featured Image → Publish. Sau đó vào sản phẩm MAX tương ứng và chọn brochure này ở dropdown "Brochure PDF".</span>
+      </p>
+      <div class="callout">
+        <span class="lang-en">To replace a PDF later (new revision), edit the same Brochure entry and click "Replace PDF" — the download link and button stay the same, only the file changes.</span>
+        <span class="lang-vi">Để thay PDF sau này (phiên bản mới), sửa lại đúng bài Brochure đó và click "Replace PDF" — link và nút tải giữ nguyên, chỉ file thay đổi.</span>
+      </div>
+    </section>
+
+    <!-- 06 SETTINGS -->
+    <section class="doc-section" id="settings">
+      <h2><span class="step-no">06</span> <span class="lang-en">Site Settings</span><span class="lang-vi">Cài đặt chung</span></h2>
+      <p class="section-lede">
+        <span class="lang-en">Left sidebar → <b>Site Settings</b>. These strings repeat on every page, so they live in one place instead of ten: the red top announcement bar, the footer description and legal disclaimer, the "Markets" note, and the contact details shown on the Contact page.</span>
+        <span class="lang-vi">Thanh bên trái → <b>Site Settings</b>. Các đoạn văn bản này lặp lại trên mọi trang, nên được đặt ở một nơi duy nhất thay vì mười nơi: thanh thông báo đỏ trên cùng, mô tả footer và disclaimer pháp lý, ghi chú "Markets", và thông tin liên hệ hiển thị trên trang Contact.</span>
+      </p>
+    </section>
+
+    <!-- 07 VIETNAMESE -->
+    <section class="doc-section" id="vietnamese">
+      <h2><span class="step-no">07</span> <span class="lang-en">English + Vietnamese content</span><span class="lang-vi">Nội dung Tiếng Anh + Tiếng Việt</span></h2>
+      <p class="section-lede">
+        <span class="lang-en">The site uses <b>Polylang</b> (a free plugin) so each page/product/case study has an English version and a linked Vietnamese version at its own URL (<code>/en/...</code> and <code>/vi/...</code>) — not a single page with both languages mixed together.</span>
+        <span class="lang-vi">Website dùng <b>Polylang</b> (plugin miễn phí) để mỗi trang/sản phẩm/case study có 1 bản Tiếng Anh và 1 bản Tiếng Việt liên kết với nhau, mỗi bản có URL riêng (<code>/en/...</code> và <code>/vi/...</code>) — không phải 1 trang trộn lẫn cả hai ngôn ngữ.</span>
+      </p>
+
+      <h3><span class="lang-en">One-time setup (your developer should do this)</span><span class="lang-vi">Cài đặt một lần (nên nhờ lập trình viên thực hiện)</span></h3>
+      <div class="steps">
+        <div class="step"><div class="step-badge">1</div><div class="step-body"><p>Plugins → Add New → search "Polylang" → Install → Activate.</p></div></div>
+        <div class="step"><div class="step-badge">2</div><div class="step-body"><p>Languages → Languages → add English (default) and Vietnamese.</p></div></div>
+        <div class="step"><div class="step-badge">3</div><div class="step-body"><p>Languages → Settings → URL modifications → "Directory" (gives <code>/en/</code> and <code>/vi/</code>).</p></div></div>
+      </div>
+
+      <h3><span class="lang-en">Translating a page (repeatable — anyone can do this part)</span><span class="lang-vi">Dịch một trang (lặp lại — ai cũng làm được phần này)</span></h3>
+      <div class="steps">
+        <div class="step"><div class="step-badge">1</div><div class="step-body"><p><span class="lang-en">Open the English page/product/case study.</span><span class="lang-vi">Mở trang/sản phẩm/case study bản Tiếng Anh.</span></p></div></div>
+        <div class="step"><div class="step-badge">2</div><div class="step-body"><p><span class="lang-en">In the Languages box (right sidebar), click the "+" next to Vietnamese.</span><span class="lang-vi">Trong khung Languages (sidebar phải), click "+" cạnh Vietnamese.</span></p></div></div>
+        <div class="step"><div class="step-badge">3</div><div class="step-body"><p><span class="lang-en">A new draft opens with the same block structure. Paste the Vietnamese text from the tables below into each matching field.</span><span class="lang-vi">Một bản nháp mới mở ra với cùng cấu trúc block. Dán nội dung Tiếng Việt từ các bảng bên dưới vào từng trường tương ứng.</span></p></div></div>
+        <div class="step"><div class="step-badge">4</div><div class="step-body"><p><span class="lang-en">Publish. The header's EN/VI switch now links the two automatically.</span><span class="lang-vi">Publish. Nút chuyển EN/VI trên header sẽ tự động liên kết hai bản.</span></p></div></div>
+      </div>
+
+      <div class="callout tip">
+        <span class="lang-en">The tables below give you the exact Vietnamese copy already used in the approved design, organized page by page and block by block — just copy, paste, publish.</span>
+        <span class="lang-vi">Các bảng dưới đây cung cấp đúng nội dung Tiếng Việt đã dùng trong bản thiết kế được duyệt, sắp xếp theo từng trang và từng block — chỉ cần copy, dán, đăng.</span>
+      </div>
+
+      <h3 style="margin-top:44px">Home</h3>
+
+      <div class="block-group">
+        <div class="block-group-title"><span class="dot"></span>Hero</div>
+        <table class="copy-table">
+          <thead><tr><th>Field</th><th>EN</th><th>VI</th></tr></thead>
+          <tbody>
+            <tr><td>Badge</td><td class="en">Kurita Kogyo Co., Ltd. × CoatureVietnam</td><td class="vi">Kurita Kogyo Co., Ltd. × CoatureVietnam</td></tr>
+            <tr><td>Heading line 1</td><td class="en">Japanese Airflow Engineering</td><td class="vi">Kỹ thuật Luồng khí Nhật Bản</td></tr>
+            <tr><td>Heading accent line</td><td class="en">for Better Painting.</td><td class="vi">cho Chất lượng Sơn Tốt hơn.</td></tr>
+            <tr><td>Subtext</td><td class="en">KURITA MAX SERIES paint booths are engineered in Japan and proven nationwide in car dealers and professional body shops. Now available in Vietnam — with a Site Survey process built for ASEAN.</td><td class="vi">Dòng Paint Booth KURITA MAX SERIES được thiết kế kỹ thuật tại Nhật Bản và đã được kiểm chứng tại các đại lý xe và xưởng sửa chữa chuyên nghiệp trên toàn Nhật Bản. Nay đã có mặt tại Vietnam — với quy trình Site Survey được xây dựng riêng cho ASEAN.</td></tr>
+            <tr><td>Primary CTA</td><td class="en">Request a Paint Booth Site Survey</td><td class="vi">Yêu cầu Site Survey cho Paint Booth</td></tr>
+            <tr><td>Secondary CTA</td><td class="en">Explore MAX Series</td><td class="vi">Khám phá MAX Series</td></tr>
+            <tr><td>Stat 1</td><td class="en">5 Models — One engineered family</td><td class="vi">5 Model — Một dòng sản phẩm thống nhất</td></tr>
+            <tr><td>Stat 2</td><td class="en">Airflow · Heat · Safety — Integrated engineering</td><td class="vi">Khí · Nhiệt · An toàn — Kỹ thuật tích hợp</td></tr>
+            <tr><td>Stat 3</td><td class="en">Vietnam → ASEAN — Phase 1 expansion path</td><td class="vi">Vietnam → ASEAN — Lộ trình mở rộng Phase 1</td></tr>
+            <tr><td>Photo caption</td><td class="en">View Max — VM-301W / Premium visibility &amp; comfort</td><td class="vi">View Max — VM-301W / Tầm nhìn &amp; sự thoải mái cao cấp</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="block-group">
+        <div class="block-group-title"><span class="dot"></span>Icon Card Grid — Why KURITA MAX (short)</div>
+        <table class="copy-table">
+          <thead><tr><th>Field</th><th>EN</th><th>VI</th></tr></thead>
+          <tbody>
+            <tr><td>Eyebrow</td><td class="en">Why Kurita Max</td><td class="vi">Vì sao chọn KURITA MAX</td></tr>
+            <tr><td>Heading</td><td class="en">Engineering trusted across Japan's body shops</td><td class="vi">Kỹ thuật được tin dùng tại các xưởng sửa chữa Nhật Bản</td></tr>
+            <tr><td>Intro</td><td class="en">KURITA MAX isn't just a booth made in Japan — it's an engineering system for airflow, heat, safety and workability, refined through years of use at car dealers and repair shops nationwide.</td><td class="vi">KURITA MAX không chỉ là một chiếc Paint Booth sản xuất tại Nhật Bản — đó là một hệ thống kỹ thuật về luồng khí, nhiệt, an toàn và khả năng thao tác, được hoàn thiện qua nhiều năm sử dụng tại các đại lý xe và xưởng sửa chữa trên toàn quốc.</td></tr>
+            <tr><td>Card 1</td><td class="en">Proven in Japan — Experience built up in Japan's demanding auto body repair market.</td><td class="vi">Kiểm chứng tại Nhật Bản — Kinh nghiệm tích lũy từ thị trường sửa chữa thân vỏ ô tô khắt khe tại Nhật Bản.</td></tr>
+            <tr><td>Card 2</td><td class="en">Trusted Nationwide — In use at car dealers and professional repair shops across Japan.</td><td class="vi">Tin dùng toàn quốc — Được sử dụng tại các đại lý xe và xưởng sửa chữa chuyên nghiệp trên khắp Nhật Bản.</td></tr>
+            <tr><td>Card 3</td><td class="en">Airflow Engineering — Precise supply, exhaust and airflow distribution design.</td><td class="vi">Kỹ thuật Luồng khí — Thiết kế chính xác việc cấp khí, hút khí và phân bố luồng khí.</td></tr>
+            <tr><td>Card 4</td><td class="en">Paint &amp; Drying Engineering — Designed around the full paint and drying process.</td><td class="vi">Kỹ thuật Sơn &amp; Sấy — Thiết kế cho toàn bộ quy trình sơn và sấy.</td></tr>
+            <tr><td>Card 5</td><td class="en">Safety &amp; Workability — Safe structure, good visibility and a comfortable working environment.</td><td class="vi">An toàn &amp; Khả năng thao tác — Cấu trúc an toàn, tầm nhìn tốt và môi trường thao tác thoải mái.</td></tr>
+            <tr><td>Footer link</td><td class="en">See the full story</td><td class="vi">Xem đầy đủ câu chuyện</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="block-group">
+        <div class="block-group-title"><span class="dot"></span>Choose Your MAX</div>
+        <table class="copy-table">
+          <thead><tr><th>Field</th><th>EN</th><th>VI</th></tr></thead>
+          <tbody>
+            <tr><td>Heading</td><td class="en">What problem are you trying to solve?</td><td class="vi">Bạn đang muốn giải quyết vấn đề gì?</td></tr>
+            <tr><td>Intro</td><td class="en">We don't start with "which product do you want?" We start with your problem — then engineer backward to the right MAX.</td><td class="vi">Chúng tôi không bắt đầu bằng câu hỏi "bạn muốn sản phẩm nào?". Chúng tôi bắt đầu từ vấn đề của bạn — rồi thiết kế ngược lại để tìm ra MAX phù hợp.</td></tr>
+            <tr><td>Footer link</td><td class="en">Compare all 5 models in detail</td><td class="vi">So sánh chi tiết cả 5 model</td></tr>
+          </tbody>
+        </table>
+        <p class="callout" style="margin-top:0">
+          <span class="lang-en">The 6 problem chips themselves (Need a new paint booth, Poor airflow...) are edited under <b>MAX Series → Which MAX Rules</b>, not on this page — see the table further down.</span>
+          <span class="lang-vi">6 nút vấn đề (Cần lắp đặt Paint Booth mới, Luồng khí kém...) được sửa tại <b>MAX Series → Which MAX Rules</b>, không phải trên trang này — xem bảng phía dưới.</span>
+        </p>
+      </div>
+
+      <div class="block-group">
+        <div class="block-group-title"><span class="dot"></span>Engineering pillars (also used standalone on the Engineering page)</div>
+        <table class="copy-table">
+          <thead><tr><th>Field</th><th>EN</th><th>VI</th></tr></thead>
+          <tbody>
+            <tr><td>Heading</td><td class="en">Four disciplines, one system</td><td class="vi">Bốn yếu tố kỹ thuật, một hệ thống</td></tr>
+            <tr><td>Airflow</td><td class="en">Supply, exhaust and airflow distribution design.</td><td class="vi">Thiết kế cấp khí, hút khí và phân bố luồng khí.</td></tr>
+            <tr><td>Heat</td><td class="en">Drying process and thermal efficiency design.</td><td class="vi">Thiết kế quy trình sấy và hiệu quả nhiệt.</td></tr>
+            <tr><td>Safety</td><td class="en">Safety structure and safe operating conditions.</td><td class="vi">Cấu trúc an toàn và điều kiện vận hành an toàn.</td></tr>
+            <tr><td>Workability</td><td class="en">Lighting, working space, visibility and operator flow.</td><td class="vi">Ánh sáng, không gian thao tác, tầm nhìn và đường di chuyển của người vận hành.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="block-group">
+        <div class="block-group-title"><span class="dot"></span>Japan Track Record</div>
+        <table class="copy-table">
+          <thead><tr><th>Field</th><th>EN</th><th>VI</th></tr></thead>
+          <tbody>
+            <tr><td>Heading</td><td class="en">Built on real-world use, not just a spec sheet</td><td class="vi">Được hoàn thiện từ thực tế sử dụng, không chỉ trên bảng thông số</td></tr>
+            <tr><td>Text</td><td class="en">The MAX Series has a long track record in Japan's automotive body &amp; paint repair sector, in daily use at car dealers and independent repair shops nationwide.</td><td class="vi">Dòng MAX Series có lịch sử sử dụng lâu dài trong ngành sửa chữa thân vỏ &amp; sơn ô tô tại Nhật Bản, được sử dụng hàng ngày tại các đại lý xe và xưởng sửa chữa độc lập trên toàn quốc.</td></tr>
+            <tr><td>Button</td><td class="en">Read Why KURITA MAX</td><td class="vi">Đọc thêm Vì sao chọn KURITA MAX</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="block-group">
+        <div class="block-group-title"><span class="dot"></span>Final CTA</div>
+        <table class="copy-table">
+          <thead><tr><th>Field</th><th>EN</th><th>VI</th></tr></thead>
+          <tbody>
+            <tr><td>Heading</td><td class="en">Ready to solve your paint booth problem?</td><td class="vi">Sẵn sàng giải quyết vấn đề Paint Booth của bạn?</td></tr>
+            <tr><td>Text</td><td class="en">Start with a Site Survey — not a price quote. We'll define the problem together, then recommend the right MAX.</td><td class="vi">Bắt đầu bằng Site Survey — không phải báo giá ngay. Chúng ta sẽ cùng xác định vấn đề, sau đó đề xuất MAX phù hợp.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:52px">Why KURITA MAX (full page)</h3>
+      <div class="block-group">
+        <div class="block-group-title"><span class="dot"></span>Page Hero + Reason List</div>
+        <table class="copy-table">
+          <thead><tr><th>Field</th><th>EN</th><th>VI</th></tr></thead>
+          <tbody>
+            <tr><td>Heading</td><td class="en">Why KURITA MAX?</td><td class="vi">Vì sao chọn KURITA MAX?</td></tr>
+            <tr><td>Intro</td><td class="en">Not just a booth made in Japan — an engineering system for airflow, heat, safety and workability, refined through years of real-world use.</td><td class="vi">Không chỉ là một Paint Booth sản xuất tại Nhật Bản — mà là một hệ thống kỹ thuật về luồng khí, nhiệt, an toàn và khả năng thao tác, được hoàn thiện qua nhiều năm sử dụng thực tế.</td></tr>
+            <tr><td>Reason 1</td><td class="en">Proven in Japan — MAX Series experience has been built up over years in Japan's demanding automotive body &amp; paint repair market — one of the most quality-conscious repair environments in the world.</td><td class="vi">Kiểm chứng tại Nhật Bản — Kinh nghiệm của dòng MAX Series được tích lũy qua nhiều năm trong thị trường sửa chữa thân vỏ &amp; sơn ô tô khắt khe tại Nhật Bản — một trong những môi trường sửa chữa đòi hỏi chất lượng cao nhất thế giới.</td></tr>
+            <tr><td>Reason 2</td><td class="en">Trusted Nationwide — The MAX Series is in daily use at car dealers and professional independent repair shops across Japan.</td><td class="vi">Tin dùng trên toàn quốc — Dòng MAX Series được sử dụng hàng ngày tại các đại lý xe và xưởng sửa chữa độc lập chuyên nghiệp trên khắp Nhật Bản.</td></tr>
+            <tr><td>Reason 3</td><td class="en">Airflow Engineering — Every MAX booth is designed around the physics of air — because airflow, not the spray gun, is usually what determines finish quality.</td><td class="vi">Kỹ thuật Luồng khí — Mỗi Paint Booth MAX đều được thiết kế dựa trên nguyên lý vật lý của không khí — vì luồng khí, chứ không phải súng phun sơn, mới thường là yếu tố quyết định chất lượng bề mặt.</td></tr>
+            <tr><td>Reason 4</td><td class="en">Paint &amp; Drying Engineering — KURITA engineers the full process, including the drying cycle and thermal efficiency.</td><td class="vi">Kỹ thuật Sơn &amp; Sấy — KURITA thiết kế kỹ thuật cho toàn bộ quy trình, bao gồm cả chu trình sấy và hiệu quả nhiệt.</td></tr>
+            <tr><td>Reason 5</td><td class="en">Safety &amp; Workability — A safe structure and safe operating conditions matter as much as finish quality.</td><td class="vi">An toàn &amp; Khả năng thao tác — Cấu trúc an toàn và điều kiện vận hành an toàn quan trọng không kém chất lượng bề mặt sơn.</td></tr>
+            <tr><td>Footnote</td><td class="en">Any "No.1" claim will only be published once 株式会社栗田工業 confirms the objective evidence behind it.</td><td class="vi">Các phát ngôn kiểu "Japan No.1" chỉ được công bố sau khi định nghĩa và bằng chứng khách quan được xác nhận cùng 株式会社栗田工業.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:52px">MAX Series (5 products — edit each product's own translation)</h3>
+      <div class="block-group">
+        <table class="copy-table">
+          <thead><tr><th>Product</th><th>Field</th><th>EN</th><th>VI</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="2">Eco Max</td><td>Message</td><td class="en">Compact &amp; Economic</td><td class="vi">Nhỏ gọn &amp; Tiết kiệm</td></tr>
+            <tr><td>Description</td><td class="en">An entry-level paint booth engineered for everyday passenger car repair, balancing footprint, energy efficiency and reliable finish quality.</td><td class="vi">Paint Booth cơ bản, được thiết kế cho sửa chữa xe con hàng ngày. Cân bằng giữa diện tích lắp đặt, hiệu quả năng lượng và chất lượng bề mặt ổn định.</td></tr>
+            <tr><td rowspan="2">Max Convert Advance</td><td>Message</td><td class="en">Professional Paint &amp; Drying</td><td class="vi">Sơn &amp; Sấy Chuyên nghiệp</td></tr>
+            <tr><td>Description</td><td class="en">The standard professional platform, engineered around balanced supply/exhaust airflow and a reliable drying cycle.</td><td class="vi">Nền tảng chuyên nghiệp tiêu chuẩn, được thiết kế xoay quanh việc cân bằng cấp khí/hút khí và chu trình sấy đáng tin cậy.</td></tr>
+            <tr><td rowspan="2">Max Convert Advance Wide</td><td>Message</td><td class="en">More Space, More Capability</td><td class="vi">Nhiều không gian, Nhiều khả năng</td></tr>
+            <tr><td>Description</td><td class="en">The wide-body version of the professional platform, giving technicians more working space around larger passenger vehicles.</td><td class="vi">Phiên bản thân rộng của nền tảng chuyên nghiệp, mang lại thêm không gian thao tác cho kỹ thuật viên quanh các dòng xe con cỡ lớn.</td></tr>
+            <tr><td rowspan="2">View Max</td><td>Message</td><td class="en">Visibility &amp; Comfort</td><td class="vi">Tầm nhìn &amp; Sự thoải mái</td></tr>
+            <tr><td>Description</td><td class="en">A premium booth engineered for visibility, lighting and operator comfort.</td><td class="vi">Paint Booth cao cấp, thiết kế tập trung vào tầm nhìn, ánh sáng và sự thoải mái của người vận hành.</td></tr>
+            <tr><td rowspan="2">G-Max</td><td>Message</td><td class="en">Bus, Truck &amp; Large Vehicle</td><td class="vi">Bus, Xe tải &amp; Xe cỡ lớn</td></tr>
+            <tr><td>Description</td><td class="en">A heavy-duty booth engineered for buses, trucks and large vehicles.</td><td class="vi">Paint Booth công suất lớn, thiết kế cho xe bus, xe tải và các phương tiện cỡ lớn.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:52px">Which MAX Rules (6 problem rows)</h3>
+      <div class="block-group">
+        <table class="copy-table">
+          <thead><tr><th>Problem (Title)</th><th>Requirement + Note — EN</th><th>Vấn đề + Ghi chú — VI</th></tr></thead>
+          <tbody>
+            <tr><td>Need a new paint booth</td><td class="en">Full Booth Requirement Assessment — Start with a Site Survey; we'll identify the right MAX for your shop size, vehicle types and budget.</td><td class="vi">Cần lắp đặt Paint Booth mới — Đánh giá toàn diện nhu cầu Paint Booth. Bắt đầu bằng Site Survey — chúng tôi sẽ giúp bạn xác định MAX phù hợp với quy mô xưởng, loại xe và ngân sách.</td></tr>
+            <tr><td>Poor airflow</td><td class="en">Airflow Redesign (Supply / Exhaust Balance) — Poor airflow is usually an engineering problem, not a spray-gun problem.</td><td class="vi">Luồng khí kém — Thiết kế lại luồng khí (cân bằng cấp khí / hút khí). Luồng khí kém thường là vấn đề kỹ thuật, không phải do súng phun sơn.</td></tr>
+            <tr><td>Paint defects</td><td class="en">Airflow + Paint &amp; Drying Engineering Review — Dust and paint defects are often caused by turbulent airflow.</td><td class="vi">Lỗi bề mặt sơn — Rà soát Airflow Engineering và Paint &amp; Drying Engineering. Bụi và lỗi sơn thường do luồng khí bị nhiễu.</td></tr>
+            <tr><td>Long drying time</td><td class="en">Heat &amp; Drying Process Design — Long drying times point to heat distribution and cycle design.</td><td class="vi">Thời gian sấy lâu — Thiết kế lại quy trình nhiệt và sấy. Thời gian sấy kéo dài thường liên quan đến phân bố nhiệt và thiết kế chu trình.</td></tr>
+            <tr><td>Need more working space</td><td class="en">Working Space &amp; Layout Review — The Wide platform adds space without losing airflow control.</td><td class="vi">Cần thêm không gian thao tác — Rà soát không gian thao tác và bố trí mặt bằng. Dòng Wide bổ sung diện tích mà vẫn giữ khả năng kiểm soát luồng khí.</td></tr>
+            <tr><td>Large vehicle painting</td><td class="en">Large-Volume Airflow &amp; Heat Engineering — G-Max is built for that scale.</td><td class="vi">Sơn xe kích thước lớn — Kỹ thuật luồng khí và nhiệt cho không gian lớn. G-Max được thiết kế cho quy mô đó.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:52px">Case Studies (6 entries)</h3>
+      <div class="block-group">
+        <table class="copy-table">
+          <thead><tr><th>Title</th><th>Result — EN</th><th>Kết quả — VI</th></tr></thead>
+          <tbody>
+            <tr><td>Japanese Major Car Dealer</td><td class="en">A nationwide dealer network standardizing service-center booths on the MAX Series to keep finish quality consistent across every location.</td><td class="vi">Một mạng lưới đại lý toàn quốc chuẩn hóa booth tại các trung tâm dịch vụ trên dòng MAX Series để đảm bảo chất lượng bề mặt đồng nhất tại mọi địa điểm.</td></tr>
+            <tr><td>Professional Body Shop in Japan</td><td class="en">An independent shop upgrading from an older booth to Max Convert Advance to fix recurring airflow-related paint defects.</td><td class="vi">Một xưởng độc lập nâng cấp từ booth cũ lên Max Convert Advance để khắc phục lỗi bề mặt sơn do luồng khí lặp đi lặp lại.</td></tr>
+            <tr><td>Bus &amp; Truck Repair Facility</td><td class="en">A commercial-vehicle repair facility using G-Max to engineer airflow and heat for a much larger enclosed painting volume.</td><td class="vi">Một cơ sở sửa chữa xe thương mại sử dụng G-Max để thiết kế luồng khí và nhiệt cho không gian sơn kín có thể tích lớn hơn nhiều.</td></tr>
+            <tr><td>High-Throughput Repair Center</td><td class="en">A high-volume operation relying on consistent airflow and drying performance to keep daily throughput predictable.</td><td class="vi">Một cơ sở vận hành công suất lớn dựa vào luồng khí và hiệu quả sấy ổn định để giữ năng suất hàng ngày ở mức có thể dự đoán được.</td></tr>
+            <tr><td>Replacing an Aging Booth</td><td class="en">A shop replacing an aging, underperforming booth — using the Site Survey process to define the real problem first.</td><td class="vi">Một xưởng thay thế booth cũ, hoạt động kém hiệu quả — sử dụng quy trình Site Survey để xác định đúng vấn đề trước khi lựa chọn thiết bị.</td></tr>
+            <tr><td>First Vietnam Installation</td><td class="en">This will be the most important case study for ASEAN expansion. Request a Site Survey to be considered as the first installation in Vietnam.</td><td class="vi">Đây sẽ là case study quan trọng nhất cho việc mở rộng ra ASEAN. Yêu cầu Site Survey để được xem xét trở thành lắp đặt đầu tiên tại Vietnam.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 style="margin-top:52px">Navigation, footer &amp; shared strings (identical on every page)</h3>
+      <div class="block-group">
+        <table class="copy-table">
+          <thead><tr><th>EN</th><th>VI</th></tr></thead>
+          <tbody>
+            <tr><td class="en">Home / Why KURITA MAX / MAX Series / Which MAX? / Engineering / Applications / Case Studies / About / Contact</td><td class="vi">Trang chủ / Vì sao chọn KURITA MAX / Dòng MAX Series / Chọn MAX nào? / Kỹ thuật / Ứng dụng / Case Study / Giới thiệu / Liên hệ</td></tr>
+            <tr><td class="en">Request Site Survey / Request a Site Survey</td><td class="vi">Yêu cầu Site Survey</td></tr>
+            <tr><td class="en">KURITA BOOTH GLOBAL — ASEAN Paint Booth Digital Marketing Platform</td><td class="vi">KURITA BOOTH GLOBAL — Nền tảng Digital Marketing Paint Booth cho ASEAN</td></tr>
+            <tr><td class="en">Expanding next to Thailand, Indonesia &amp; Malaysia.</td><td class="vi">Mở rộng tiếp theo sang Thailand, Indonesia &amp; Malaysia.</td></tr>
+            <tr><td class="en">Phase 1 — English &amp; Vietnamese</td><td class="vi">Giai đoạn 1 — Tiếng Anh &amp; Tiếng Việt</td></tr>
+            <tr><td class="en">All rights reserved.</td><td class="vi">Bảo lưu mọi quyền.</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:13px;color:var(--steel-soft)">
+          <span class="lang-en">These repeat on all 10 pages — enter them once in Site Settings (§06) rather than per page.</span>
+          <span class="lang-vi">Các nội dung này lặp lại trên cả 10 trang — chỉ cần nhập một lần tại Site Settings (mục 06) thay vì từng trang.</span>
+        </p>
+      </div>
+
+      <div class="callout">
+        <span class="lang-en">Full copy for Which MAX, Engineering, Applications, Case Studies, About, Site Survey and Contact pages follows the same EN↔VI pairing already used throughout the approved static design — ask your developer for the complete field-by-field export if you'd like it as a spreadsheet instead of this page.</span>
+        <span class="lang-vi">Nội dung đầy đủ cho các trang Which MAX, Engineering, Applications, Case Studies, About, Site Survey và Contact theo đúng cặp EN↔VI đã dùng trong bản thiết kế tĩnh được duyệt — có thể nhờ lập trình viên xuất file spreadsheet đầy đủ theo từng trường nếu muốn thay vì dùng trang này.</span>
+      </div>
+    </section>
+
+    <!-- 08 SEO -->
+    <section class="doc-section" id="seo">
+      <h2><span class="step-no">08</span> <span class="lang-en">SEO &amp; images</span><span class="lang-vi">SEO &amp; hình ảnh</span></h2>
+      <div class="table-wrap">
+        <table class="field-table">
+          <thead><tr><th><span class="lang-en">What</span><span class="lang-vi">Việc cần làm</span></th><th><span class="lang-en">Where</span><span class="lang-vi">Ở đâu</span></th></tr></thead>
+          <tbody>
+            <tr><td><span class="lang-en">Page title / meta description</span><span class="lang-vi">Tiêu đề trang / mô tả meta</span></td><td><span class="lang-en">"SEO" box near the bottom of any Page/Product/Case Study editor (or Rank Math's box, if installed)</span><span class="lang-vi">Khung "SEO" ở cuối trình soạn thảo Page/Product/Case Study (hoặc khung Rank Math nếu đã cài)</span></td></tr>
+            <tr><td><span class="lang-en">Image alt text</span><span class="lang-vi">Văn bản thay thế (alt) cho ảnh</span></td><td><span class="lang-en">Media Library → click the image → "Alternative Text" field. Always fill this in.</span><span class="lang-vi">Media Library → click vào ảnh → trường "Alternative Text". Luôn điền trường này.</span></td></tr>
+            <tr><td><span class="lang-en">URL slug</span><span class="lang-vi">Đường dẫn URL</span></td><td><span class="lang-en">Right sidebar of the editor, under the title</span><span class="lang-vi">Sidebar phải của trình soạn thảo, dưới tiêu đề</span></td></tr>
+            <tr><td><span class="lang-en">Image size</span><span class="lang-vi">Kích thước ảnh</span></td><td><span class="lang-en">Upload any size — the theme auto-crops to the correct ratio for each slot, so a mismatched photo can't break a grid</span><span class="lang-vi">Tải ảnh kích thước bất kỳ — theme tự động crop đúng tỉ lệ cho từng vị trí, ảnh không đúng kích cỡ sẽ không làm vỡ layout</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 09 FAQ -->
+    <section class="doc-section" id="faq">
+      <h2><span class="step-no">09</span> <span class="lang-en">Troubleshooting</span><span class="lang-vi">Xử lý sự cố</span></h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-badge">?</div>
+          <div class="step-body">
+            <h4><span class="lang-en">"I added a product but it's not showing up"</span><span class="lang-vi">"Tôi đã thêm sản phẩm nhưng không thấy hiện lên"</span></h4>
+            <p><span class="lang-en">Check its status is <b>Published</b> (not Draft), and that the page has a MAX Series Grid block on it.</span><span class="lang-vi">Kiểm tra trạng thái là <b>Published</b> (không phải Draft), và trang đó có block MAX Series Grid.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">?</div>
+          <div class="step-body">
+            <h4><span class="lang-en">"The site looks different from what I expected after editing"</span><span class="lang-vi">"Website trông khác so với dự kiến sau khi tôi sửa"</span></h4>
+            <p><span class="lang-en">Make sure you clicked <b>Update</b>. If it still looks off, undo with the ↺ arrow at the top of the editor before saving again.</span><span class="lang-vi">Đảm bảo bạn đã click <b>Update</b>. Nếu vẫn chưa đúng, dùng mũi tên hoàn tác ↺ ở đầu trình soạn thảo trước khi lưu lại.</span></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-badge">?</div>
+          <div class="step-body">
+            <h4><span class="lang-en">"I can't find a section to edit its icon/color"</span><span class="lang-vi">"Tôi không tìm thấy chỗ sửa icon/màu của section"</span></h4>
+            <p><span class="lang-en">Some visual choices (colors, icon set) are intentionally fixed to protect the design system — that's on purpose, per the project brief. Contact your developer if a genuinely new visual option is needed.</span><span class="lang-vi">Một số lựa chọn hình ảnh (màu sắc, bộ icon) được cố định có chủ đích để bảo vệ hệ thống thiết kế. Liên hệ lập trình viên nếu thực sự cần thêm lựa chọn hình ảnh mới.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="doc-footer">
+      <span class="lang-en">KURITA BOOTH GLOBAL — WordPress conversion, built to preserve the approved static design 1:1 while making every page editable from WP Admin.</span>
+      <span class="lang-vi">KURITA BOOTH GLOBAL — Bản chuyển đổi WordPress, được xây dựng để giữ nguyên 100% thiết kế tĩnh đã duyệt trong khi cho phép chỉnh sửa mọi trang từ WP Admin.</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var btns = document.querySelectorAll('.langtoggle button');
+  function setLang(lang){
+    root.setAttribute('data-lang', lang);
+    btns.forEach(function(b){ b.classList.toggle('is-active', b.getAttribute('data-set-lang') === lang); });
+    try { localStorage.setItem('kbg-admin-guide-lang', lang); } catch(e){}
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.getAttribute('data-set-lang')); });
+  });
+  var saved = 'en';
+  try { saved = localStorage.getItem('kbg-admin-guide-lang') || 'en'; } catch(e){}
+  setLang(saved);
+})();
+</script>

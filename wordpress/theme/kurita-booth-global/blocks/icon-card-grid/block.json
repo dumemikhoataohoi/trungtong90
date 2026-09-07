@@ -1,0 +1,28 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/icon-card-grid",
+	"title": "Icon Card Grid",
+	"category": "kbg-sections",
+	"icon": "screenoptions",
+	"description": "Reusable icon+heading+text card grid (Why KURITA MAX, Engineering pillars, Applications...).",
+	"supports": { "html": false },
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "" },
+		"heading": { "type": "string", "default": "" },
+		"intro": { "type": "string", "default": "" },
+		"sectionStyle": { "type": "string", "default": "default", "enum": ["default", "alt", "navy"] },
+		"cardStyle": { "type": "string", "default": "plain", "enum": ["plain", "pillar"] },
+		"columns": { "type": "number", "default": 4 },
+		"centerHeading": { "type": "boolean", "default": true },
+		"footerLinkText": { "type": "string", "default": "" },
+		"footerLinkUrl": { "type": "string", "default": "" },
+		"items": {
+			"type": "array",
+			"default": [
+				{ "icon": "check", "heading": "Card heading", "text": "Card description.", "linkText": "", "linkUrl": "" }
+			]
+		}
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

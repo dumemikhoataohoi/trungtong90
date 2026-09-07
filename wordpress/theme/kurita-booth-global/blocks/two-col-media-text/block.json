@@ -1,0 +1,25 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/two-col-media-text",
+	"title": "Two Column — Media + Text",
+	"category": "kbg-sections",
+	"icon": "columns",
+	"description": "Image (or navy placeholder box) beside a heading/text block, either side. Used on the About page.",
+	"supports": { "html": false },
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "" },
+		"heading": { "type": "string", "default": "" },
+		"text": { "type": "string", "default": "" },
+		"buttonText": { "type": "string", "default": "" },
+		"buttonUrl": { "type": "string", "default": "" },
+		"mediaPosition": { "type": "string", "default": "right", "enum": ["left", "right"] },
+		"mediaType": { "type": "string", "default": "image", "enum": ["image", "placeholder"] },
+		"imageId": { "type": "number", "default": 0 },
+		"imageUrl": { "type": "string", "default": "" },
+		"placeholderTitle": { "type": "string", "default": "" },
+		"placeholderLabel": { "type": "string", "default": "" },
+		"sectionStyle": { "type": "string", "default": "default", "enum": ["default", "alt"] }
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

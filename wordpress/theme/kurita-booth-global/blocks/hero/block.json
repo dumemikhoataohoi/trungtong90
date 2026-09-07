@@ -1,0 +1,33 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/hero",
+	"title": "Hero",
+	"category": "kbg-sections",
+	"icon": "cover-image",
+	"description": "Home page hero — badge, heading, subtext, two CTAs, meta stats, and a photo.",
+	"supports": { "html": false, "multiple": false },
+	"attributes": {
+		"badgeText": { "type": "string", "default": "Kurita Kogyo Co., Ltd. × CoatureVietnam" },
+		"headingLine1": { "type": "string", "default": "Japanese Airflow Engineering" },
+		"headingAccentLine": { "type": "string", "default": "for Better Painting." },
+		"subtext": { "type": "string", "default": "KURITA MAX SERIES paint booths are engineered in Japan and proven nationwide in car dealers and professional body shops. Now available in Vietnam — with a Site Survey process built for ASEAN." },
+		"primaryCtaText": { "type": "string", "default": "Request a Paint Booth Site Survey" },
+		"primaryCtaUrl": { "type": "string", "default": "" },
+		"secondaryCtaText": { "type": "string", "default": "Explore MAX Series" },
+		"secondaryCtaUrl": { "type": "string", "default": "" },
+		"imageId": { "type": "number", "default": 0 },
+		"imageUrl": { "type": "string", "default": "" },
+		"imageCaptionTitle": { "type": "string", "default": "View Max — VM-301W" },
+		"imageCaptionSub": { "type": "string", "default": "Premium visibility & comfort" },
+		"metaItems": {
+			"type": "array",
+			"default": [
+				{ "value": "5 Models", "label": "One engineered family" },
+				{ "value": "Airflow · Heat · Safety", "label": "Integrated engineering" },
+				{ "value": "Vietnam → ASEAN", "label": "Phase 1 expansion path" }
+			]
+		}
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

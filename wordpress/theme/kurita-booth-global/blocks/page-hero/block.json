@@ -1,0 +1,15 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/page-hero",
+	"title": "Page Hero",
+	"category": "kbg-sections",
+	"icon": "align-center",
+	"description": "Dark navy header for the 9 informational pages (breadcrumb + heading + intro).",
+	"supports": { "html": false },
+	"attributes": {
+		"heading": { "type": "string", "default": "Page Title" },
+		"intro": { "type": "string", "default": "" }
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,20 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/choose-your-max",
+	"title": "Choose Your MAX (Problem Selector)",
+	"category": "kbg-sections",
+	"icon": "editor-help",
+	"description": "Interactive 'What problem are you trying to solve?' widget, driven by Which MAX Rules (MAX Series → Which MAX Rules).",
+	"supports": { "html": false, "multiple": false },
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Choose Your Max" },
+		"heading": { "type": "string", "default": "What problem are you trying to solve?" },
+		"intro": { "type": "string", "default": "" },
+		"sectionStyle": { "type": "string", "default": "alt", "enum": ["default", "alt"] },
+		"resultCtaText": { "type": "string", "default": "Request a Site Survey" },
+		"footerLinkText": { "type": "string", "default": "" },
+		"footerLinkUrl": { "type": "string", "default": "" }
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}

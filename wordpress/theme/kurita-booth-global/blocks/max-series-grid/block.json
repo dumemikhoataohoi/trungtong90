@@ -1,0 +1,18 @@
+{
+	"apiVersion": 3,
+	"name": "kbg/max-series-grid",
+	"title": "MAX Series Grid",
+	"category": "kbg-sections",
+	"icon": "grid-view",
+	"description": "Automatically lists all published MAX Series products (managed under MAX Series in the admin menu).",
+	"supports": { "html": false, "multiple": false },
+	"attributes": {
+		"eyebrow": { "type": "string", "default": "Max Series" },
+		"heading": { "type": "string", "default": "One family, five roles" },
+		"intro": { "type": "string", "default": "" },
+		"footerLinkText": { "type": "string", "default": "" },
+		"footerLinkUrl": { "type": "string", "default": "" }
+	},
+	"editorScript": "file:./edit.js",
+	"render": "file:./render.php"
+}
