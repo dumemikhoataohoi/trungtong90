@@ -17,13 +17,13 @@
  7. WordPress will then import each of the posts, pages, comments, categories, etc.
     contained in this file into your site.
 -->
-<!-- generator="WordPress/6.4.3" created="2026-09-07 03:07" -->
+<!-- generator="WordPress/6.4.3" created="2026-09-17 07:37" -->
 <rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
   <channel>
 <title>KURITA BOOTH GLOBAL (dev)</title>
 <link>http://localhost:8000</link>
 <description>MAX Series · Paint Booth Systems</description>
-<pubDate>Mon, 07 Sep 2026 03:07:49 +0000</pubDate>
+<pubDate>Thu, 17 Sep 2026 07:37:33 +0000</pubDate>
 <language>en-US</language>
 <wp:wxr_version>1.2</wp:wxr_version>
 <wp:base_site_url>http://localhost:8000</wp:base_site_url>
@@ -1149,7 +1149,7 @@ Commenter avatars come from <a href="https://en.gravatar.com/">Gravatar</a>.]]><
   <description/>
   <content:encoded><![CDATA[<!-- wp:kbg/page-hero {"heading":"Which KURITA MAX Is Right for You?","intro":"We don't start with \"which product do you want?\" We start with your problem — then work backward to the right engineering solution."} /-->
 
-<!-- wp:kbg/choose-your-max {"eyebrow":"Step 1","heading":"What problem are you trying to solve?"} /-->
+<!-- wp:kbg/choose-your-max {"eyebrow":"Step 1","heading":"What problem are you trying to solve?","showFlowDiagram":true} /-->
 
 <!-- wp:kbg/compare-table {"eyebrow":"Quick Reference","heading":"By use case","sectionStyle":"alt"} /-->
 
@@ -1160,8 +1160,8 @@ Commenter avatars come from <a href="https://en.gravatar.com/">Gravatar</a>.]]><
   <wp:post_id>118</wp:post_id>
   <wp:post_date>2026-09-07 02:59:02</wp:post_date>
   <wp:post_date_gmt>2026-09-07 02:59:02</wp:post_date_gmt>
-  <wp:post_modified>2026-09-07 02:59:02</wp:post_modified>
-  <wp:post_modified_gmt>2026-09-07 02:59:02</wp:post_modified_gmt>
+  <wp:post_modified>2026-09-17 07:36:27</wp:post_modified>
+  <wp:post_modified_gmt>2026-09-17 07:36:27</wp:post_modified_gmt>
   <wp:comment_status>closed</wp:comment_status>
   <wp:ping_status>closed</wp:ping_status>
   <wp:post_name>which-max</wp:post_name>

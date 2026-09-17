@@ -12,6 +12,7 @@
 		"intro": { "type": "string", "default": "" },
 		"sectionStyle": { "type": "string", "default": "alt", "enum": ["default", "alt"] },
 		"resultCtaText": { "type": "string", "default": "Request a Site Survey" },
+		"showFlowDiagram": { "type": "boolean", "default": false },
 		"footerLinkText": { "type": "string", "default": "" },
 		"footerLinkUrl": { "type": "string", "default": "" }
 	},

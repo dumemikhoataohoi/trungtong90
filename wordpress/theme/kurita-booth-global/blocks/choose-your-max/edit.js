@@ -6,6 +6,7 @@
 	var TextControl = wp.components.TextControl;
 	var TextareaControl = wp.components.TextareaControl;
 	var SelectControl = wp.components.SelectControl;
+	var ToggleControl = wp.components.ToggleControl;
 	var PanelBody = wp.components.PanelBody;
 	var ServerSideRender = wp.serverSideRender;
 
@@ -42,6 +43,12 @@
 							value: a.sectionStyle,
 							options: [{ label: "White", value: "default" }, { label: "Light gray (alt)", value: "alt" }],
 							onChange: s("sectionStyle"),
+						}),
+						el(ToggleControl, {
+							label: "Show full Problem → Site Survey → KURITA Review → Final Recommendation flow",
+							help: "Turn this on for the dedicated Which MAX page. Leave off for the shorter Home page teaser.",
+							checked: a.showFlowDiagram,
+							onChange: s("showFlowDiagram"),
 						})
 					),
 					el(

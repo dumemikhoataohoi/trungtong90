@@ -47,7 +47,7 @@ function kbg_render_problem_map_meta_box( $post ) {
 			<td><input type="text" class="large-text" id="kbg_requirement" name="kbg_requirement" value="<?php echo esc_attr( $requirement ); ?>"></td>
 		</tr>
 		<tr>
-			<th><label for="kbg_recommended_max_id"><?php esc_html_e( 'Recommended MAX', 'kbg' ); ?></label></th>
+			<th><label for="kbg_recommended_max_id"><?php esc_html_e( 'Potential MAX', 'kbg' ); ?></label></th>
 			<td>
 				<select id="kbg_recommended_max_id" name="kbg_recommended_max_id">
 					<option value=""><?php esc_html_e( '— Use text fallback below —', 'kbg' ); ?></option>

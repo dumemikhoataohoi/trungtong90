@@ -47,10 +47,48 @@ $section_class = 'section' . ( 'alt' === $attributes['sectionStyle'] ? ' section
 					</div>
 					<div class="pr-arrow"><?php echo kbg_icon_svg( 'arrow' ); ?></div>
 					<div class="pr-step">
-						<b><?php esc_html_e( 'Recommended MAX', 'kbg' ); ?></b>
+						<b><?php esc_html_e( 'Potential MAX', 'kbg' ); ?></b>
 						<div class="val"><a data-out="model-link" href="#" style="color:var(--red)"><span data-out="model">—</span></a></div>
 					</div>
 				</div>
+
+				<?php if ( $attributes['showFlowDiagram'] ) : ?>
+					<div style="margin-top:24px;display:flex;gap:8px;flex-wrap:wrap;align-items:stretch">
+						<div style="flex:1;min-width:110px;padding:12px;border:1px solid var(--line);border-radius:8px">
+							<div style="width:22px;height:22px;border-radius:50%;background:var(--navy-900);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px">1</div>
+							<b style="font-size:13px;display:block"><?php esc_html_e( 'Problem', 'kbg' ); ?></b>
+							<div style="font-size:11.5px;color:var(--steel-600);margin-top:4px"><?php esc_html_e( 'What you selected above', 'kbg' ); ?></div>
+						</div>
+						<div style="flex:1;min-width:110px;padding:12px;border:1px solid var(--line);border-radius:8px">
+							<div style="width:22px;height:22px;border-radius:50%;background:var(--navy-900);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px">2</div>
+							<b style="font-size:13px;display:block"><?php esc_html_e( 'Potential MAX', 'kbg' ); ?></b>
+							<div style="font-size:11.5px;color:var(--steel-600);margin-top:4px"><?php esc_html_e( 'Instant match from the website', 'kbg' ); ?></div>
+						</div>
+						<div style="flex:1;min-width:110px;padding:12px;border:1px solid var(--line);border-radius:8px">
+							<div style="width:22px;height:22px;border-radius:50%;background:var(--navy-900);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px">3</div>
+							<b style="font-size:13px;display:block"><?php esc_html_e( 'Site Survey', 'kbg' ); ?></b>
+							<div style="font-size:11.5px;color:var(--steel-600);margin-top:4px"><?php esc_html_e( 'On-site visit & findings', 'kbg' ); ?></div>
+						</div>
+						<div style="flex:1;min-width:110px;padding:12px;border:1px solid var(--line);border-radius:8px">
+							<div style="width:22px;height:22px;border-radius:50%;background:var(--navy-900);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px">4</div>
+							<b style="font-size:13px;display:block"><?php esc_html_e( 'KURITA Technical Review', 'kbg' ); ?></b>
+							<div style="font-size:11.5px;color:var(--steel-600);margin-top:4px"><?php esc_html_e( 'Japan engineering validates', 'kbg' ); ?></div>
+						</div>
+						<div style="flex:1;min-width:110px;padding:12px;border:1px solid var(--red);border-radius:8px">
+							<div style="width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:8px">5</div>
+							<b style="font-size:13px;display:block"><?php esc_html_e( 'Final Recommendation', 'kbg' ); ?></b>
+							<div style="font-size:11.5px;color:var(--steel-600);margin-top:4px"><?php esc_html_e( 'Confirmed MAX model', 'kbg' ); ?></div>
+						</div>
+					</div>
+					<p style="margin-top:12px;font-size:12px;font-style:italic;color:var(--steel-400)">
+						<?php esc_html_e( 'This is a potential match based on your answer — not a final decision.', 'kbg' ); ?>
+					</p>
+				<?php else : ?>
+					<p style="margin-top:10px;font-size:12px;font-style:italic;color:var(--steel-400)">
+						<?php esc_html_e( 'Final model confirmed after Site Survey + KURITA technical review.', 'kbg' ); ?>
+					</p>
+				<?php endif; ?>
+
 				<p class="form-note" style="margin-top:18px;font-size:14px;color:var(--steel-600)" data-out="note"></p>
 				<div style="margin-top:18px">
 					<a href="<?php echo esc_url( kbg_site_survey_url() ); ?>" class="btn btn-primary btn-sm"><?php echo esc_html( $attributes['resultCtaText'] ); ?></a>
