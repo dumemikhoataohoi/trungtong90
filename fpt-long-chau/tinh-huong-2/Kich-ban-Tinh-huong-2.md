@@ -13,14 +13,16 @@ Nhân vật: **Thúy** – trưởng ca · **Dương** – nhân viên bán hàn
 
 | # | Slide | Thông điệp chính | Bố cục |
 |--|----------|--------------|--------------------|
-| 1 | **Tình huống 2: Hai nhân viên cùng xin nghỉ** | Bài toán không phải chọn ai nghỉ, mà là cân bằng **con người** và **vận hành** | Nền tối. Bên trái: thẻ Dương và Thảo, cùng "Xin nghỉ: THỨ BẢY". Ở giữa: biểu tượng cảnh báo, chữ lớn "Ca chỉ còn 2 người". Bên phải: thẻ Shop với 5 ảnh hưởng |
-| 2 | **Em dựa vào đâu để quyết định?** | Cùng 5 tiêu chí cho cả hai. Không xét việc riêng của ai quan trọng hơn | Bảng so sánh: 5 tiêu chí (có biểu tượng) × cột Dương (✓) và cột Thảo (•). Dải "Đề xuất" màu teal, kèm ô lưu ý màu vàng |
-| 3 | **Nghe trước – đề xuất sau – hỏi lại** | Trưởng ca dẫn dắt cuộc trao đổi, không ra lệnh | Hội thoại dạng bong bóng chat (Thúy bên trái, Dương và Thảo bên phải). Bên phải là panel "Phương án Thúy đề xuất" gồm 4 ý, kết thúc bằng câu hỏi lại |
-| 4 | **Không ai thắng – không ai thua** | Người hỗ trợ shop không được trở thành người chịu thiệt | Ba thẻ Dương + Shop + Thảo (thẻ Shop nổi bật ở giữa). Bên dưới: khung "Khi Thảo hỏi…" và ô nguyên tắc nền tối |
-| 5 | **Nếu cả hai đều không thể đổi?** | Không ép nhân viên trước khi đã kiểm tra các phương án vận hành | Bậc thang 5 nấc leo thang dần, dẫn tới thẻ màu vàng "Ra quyết định theo SOP + căn cứ + thẩm quyền" |
-| 6 | **Dẫn dắt bằng nguyên tắc, không bằng quyền lực** | Dương được tôn trọng, Thảo được công bằng, shop đủ người | Nền tối. 4 thẻ: Lắng nghe, Có căn cứ, Công bằng, Có dự phòng. Câu chốt, rồi 3 mục tiêu |
+| 1 | **Hai nhân viên cùng xin nghỉ một ngày** | Bài toán không phải chọn ai nghỉ, mà là cân bằng **con người** và **vận hành** | Bên trái: thẻ Dương (navy) và Thảo (teal), cùng "Xin nghỉ: THỨ BẢY". Ở giữa: biểu tượng cảnh báo màu vàng, chữ đỏ lớn "2 người". Bên phải: thẻ Shop (vàng) với 5 ảnh hưởng. Bên dưới: khung trích dẫn nền xanh nhạt |
+| 2 | **Em dựa vào đâu để quyết định?** | Cùng 5 tiêu chí cho cả hai. Không xét việc riêng của ai quan trọng hơn | Bảng so sánh: 5 tiêu chí × cột Dương (✓ xanh lá) và cột Thảo (•). Nhãn "Đề nghị giữ lịch nghỉ" và "Trao đổi để tìm độ linh động". Dải "Đề xuất" nền navy, kèm ô lưu ý màu vàng |
+| 3 | **Nghe trước – đề xuất sau – hỏi lại** | Trưởng ca dẫn dắt cuộc trao đổi, không ra lệnh | Hội thoại dạng bong bóng chat: Thúy (xanh lá) bên trái, Dương và Thảo bên phải. Panel "Phương án Thúy đề xuất" gồm 4 ý, kết thúc bằng câu hỏi lại trên nền navy |
+| 4 | **Không ai thắng – không ai thua** | Người hỗ trợ shop không được trở thành người chịu thiệt | Ba thẻ Dương (navy) + Shop (vàng) + Thảo (teal), mỗi thẻ có nhãn trạng thái. Bên dưới: khung "Khi Thảo hỏi…" và ô nguyên tắc nền navy |
+| 5 | **Nếu cả hai đều không thể đổi?** | Không ép nhân viên trước khi đã kiểm tra các phương án vận hành | Hai ô "Không nên / Nên nói". Bậc thang 5 nấc (01–05) leo thang dần, dẫn tới thẻ navy "Ra quyết định theo SOP + căn cứ + thẩm quyền" |
+| 6 | **Dẫn dắt bằng nguyên tắc, không bằng quyền lực** | Dương được tôn trọng, Thảo được công bằng, shop đủ người | 4 thẻ: Lắng nghe, Có căn cứ, Công bằng, Có dự phòng. Câu chốt trên dải navy, rồi 3 mục tiêu |
 
 Mỗi slide đều có Speaker Notes (khoảng 55–70 giây phần nói). Toàn bộ kịch bản role-play nằm trong notes của slide 3, 4 và 5.
+
+**Thiết kế:** theo bảng màu của file mẫu. Toàn bộ slide nền sáng, có thanh xanh navy trên cùng và nhãn bước màu cam. Màu nhân vật: Dương xanh navy, Thảo xanh teal, Shop vàng, Thúy xanh lá. Logo Nhà thuốc Long Châu nằm ở góc phải trên mỗi slide.
 
 ---
 
