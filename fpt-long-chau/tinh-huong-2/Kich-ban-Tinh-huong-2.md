@@ -13,7 +13,7 @@ Nhân vật: **Thúy** – trưởng ca · **Dương** – nhân viên bán hàn
 
 | # | Slide | Thông điệp chính | Bố cục |
 |--|----------|--------------|--------------------|
-| 1 | **Hai nhân viên cùng xin nghỉ một ngày** | Bài toán không phải chọn ai nghỉ, mà là cân bằng **con người** và **vận hành** | Bên trái: thẻ Dương (navy) và Thảo (teal), cùng "Xin nghỉ: THỨ BẢY". Ở giữa: thẻ vàng với biểu tượng cảnh báo, chữ đỏ lớn "2 người" và 5 ảnh hưởng tới shop. Bên phải: ảnh đề bài thật, Tình huống 2 được khoanh đỏ. Bên dưới: khung trích dẫn nền xanh nhạt |
+| 1 | **Hai nhân viên cùng xin nghỉ một ngày** | Bài toán không phải chọn ai nghỉ, mà là cân bằng **con người** và **vận hành** | Bên trái: thẻ Dương (navy) và Thảo (teal), cùng "Xin nghỉ: THỨ BẢY". Ở giữa: biểu tượng cảnh báo màu vàng, chữ đỏ lớn "2 người". Bên phải: thẻ Shop (vàng) với 5 ảnh hưởng. Bên dưới: khung trích dẫn nền xanh nhạt |
 | 2 | **Em dựa vào đâu để quyết định?** | Cùng 5 tiêu chí cho cả hai. Không xét việc riêng của ai quan trọng hơn | Bảng so sánh: 5 tiêu chí × cột Dương (✓ xanh lá) và cột Thảo (•). Nhãn "Đề nghị giữ lịch nghỉ" và "Trao đổi để tìm độ linh động". Dải "Đề xuất" nền navy, kèm ô lưu ý màu vàng |
 | 3 | **Nghe trước – đề xuất sau – hỏi lại** | Trưởng ca dẫn dắt cuộc trao đổi, không ra lệnh | Hội thoại dạng bong bóng chat: Thúy (xanh lá) bên trái, Dương và Thảo bên phải. Panel "Phương án Thúy đề xuất" gồm 4 ý, kết thúc bằng câu hỏi lại trên nền navy |
 | 4 | **Không ai thắng – không ai thua** | Người hỗ trợ shop không được trở thành người chịu thiệt | Ba thẻ Dương (navy) + Shop (vàng) + Thảo (teal), mỗi thẻ có nhãn trạng thái. Bên dưới: khung "Khi Thảo hỏi…" và ô nguyên tắc nền navy |

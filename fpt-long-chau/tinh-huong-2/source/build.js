@@ -100,41 +100,45 @@ async function icon(name, color = "FFFFFF", size = 256) {
     const s = pres.addSlide({ masterName: "LC_LIGHT", sectionTitle: "Đặt vấn đề" });
     head(s, "TÌNH HUỐNG 2", "Hai nhân viên cùng xin nghỉ một ngày", "Bài toán quản lý: cân bằng nhu cầu cá nhân và khả năng vận hành của shop");
 
-    // Hai nhân viên
     const people = [
-      { name: "DƯƠNG", y: 1.95, fill: C.accent1, col: C.accent1 },
-      { name: "THẢO", y: 3.6, fill: C.accent2, col: C.accent2 },
+      { name: "DƯƠNG", y: 2.0, fill: C.accent1, col: C.accent1 },
+      { name: "THẢO", y: 3.65, fill: C.accent2, col: C.accent2 },
     ];
     for (const p of people) {
-      card(s, { x: 0.6, y: p.y, w: 3.0, h: 1.35, objectName: `Thẻ ${p.name}` });
-      await iconCircle(s, { x: 0.8, y: p.y + 0.3, d: 0.75, fill: p.fill, name: "FaUser", objectName: `Avatar ${p.name}` });
-      T(s, p.name, { x: 1.7, y: p.y + 0.2, w: 1.85, h: 0.4, fontSize: 18, bold: true, color: p.col, charSpacing: 1, objectName: `Tên ${p.name}` });
+      card(s, { x: 0.6, y: p.y, w: 3.75, h: 1.4, objectName: `Thẻ ${p.name}` });
+      await iconCircle(s, { x: 0.85, y: p.y + 0.275, d: 0.85, fill: p.fill, name: "FaUser", objectName: `Avatar ${p.name}` });
+      T(s, p.name, { x: 1.95, y: p.y + 0.22, w: 2.25, h: 0.42, fontSize: 19, bold: true, color: p.col, charSpacing: 1, objectName: `Tên ${p.name}` });
       T(s, [
         { text: "Nhân viên bán hàng", options: { fontSize: 12, color: HEX.slate, breakLine: true } },
-        { text: "Xin nghỉ: ", options: { fontSize: 13, bold: true, color: C.text1 } },
-        { text: "THỨ BẢY", options: { fontSize: 13, bold: true, color: C.accent4 } },
-      ], { x: 1.7, y: p.y + 0.64, w: 1.85, h: 0.55, paraSpaceAfter: 2, objectName: `Mô tả ${p.name}` });
+        { text: "Xin nghỉ: ", options: { fontSize: 14, bold: true, color: C.text1 } },
+        { text: "THỨ BẢY", options: { fontSize: 14, bold: true, color: C.accent4 } },
+      ], { x: 1.95, y: p.y + 0.68, w: 2.3, h: 0.55, paraSpaceAfter: 2, objectName: `Mô tả ${p.name}` });
     }
-    line(s, 3.6, 2.625, 0.25, 0, {}, "Nối Dương");
-    line(s, 3.6, 4.275, 0.25, 0, {}, "Nối Thảo");
-    line(s, 3.85, 2.625, 0, 1.65, {}, "Gộp");
-    line(s, 3.85, 3.45, 0.38, 0, { endArrowType: "triangle" }, "Mũi tên vào cảnh báo");
+    line(s, 4.35, 2.7, 0.35, 0, {}, "Nối Dương");
+    line(s, 4.35, 4.35, 0.35, 0, {}, "Nối Thảo");
+    line(s, 4.7, 2.7, 0, 1.65, {}, "Gộp");
+    line(s, 4.7, 3.525, 0.45, 0, { endArrowType: "triangle" }, "Mũi tên vào cảnh báo");
 
-    // Nguy cơ + ảnh hưởng tới shop
-    tint(s, { x: 4.25, y: 1.95, w: 4.5, h: 3.0, rectRadius: 0.12, fill: { color: C.accent3, transparency: 88 }, line: { color: "F7E1A2", width: 1 }, objectName: "Thẻ nguy cơ" });
-    await iconCircle(s, { x: 4.5, y: 2.17, d: 0.95, fill: C.accent3, name: "FaTriangleExclamation", color: HEX.dk2, pad: 0.22, objectName: "Cảnh báo" });
+    await iconCircle(s, { x: 6.15, y: 2.1, d: 1.1, fill: C.accent3, name: "FaTriangleExclamation", color: HEX.dk2, pad: 0.22, objectName: "Cảnh báo" });
+    T(s, "NẾU CẢ HAI CÙNG NGHỈ", { x: 5.2, y: 3.3, w: 3.0, h: 0.28, fontSize: 12, bold: true, color: HEX.slate, align: "center", charSpacing: 1, objectName: "Nhãn cảnh báo" });
     T(s, [
-      { text: "NẾU CẢ HAI CÙNG NGHỈ", options: { fontSize: 11, bold: true, color: HEX.slate, charSpacing: 1, breakLine: true } },
-      { text: "ca chỉ còn ", options: { fontSize: 16, bold: true, color: C.text1 } },
-      { text: "2 người", options: { fontSize: 30, bold: true, color: C.accent6 } },
-    ], { x: 5.65, y: 2.12, w: 2.95, h: 1.05, valign: "middle", paraSpaceAfter: 2, objectName: "Số người còn lại" });
-    T(s, "NGUY CƠ THIẾU NHÂN SỰ → ẢNH HƯỞNG:", { x: 4.5, y: 3.38, w: 4.1, h: 0.28, fontSize: 11, bold: true, color: C.accent4, charSpacing: 1, objectName: "Nhãn ảnh hưởng" });
-    const bl = (arr) => arr.map((t, i, a) => ({ text: t, options: { bullet: { indent: 12 }, breakLine: i < a.length - 1 } }));
-    T(s, bl(["Tư vấn & bán hàng", "Khách giờ cao điểm", "Hàng hóa, vận hành"]), { x: 4.5, y: 3.72, w: 2.15, h: 1.05, fontSize: 13, color: C.text1, paraSpaceAfter: 3, objectName: "Ảnh hưởng 1" });
-    T(s, bl(["Chất lượng phục vụ", "Áp lực người ở lại"]), { x: 6.65, y: 3.72, w: 2.0, h: 1.05, fontSize: 13, color: C.text1, paraSpaceAfter: 3, objectName: "Ảnh hưởng 2" });
+      { text: "ca chỉ còn", options: { fontSize: 16, bold: true, color: C.text1, breakLine: true } },
+      { text: "2 người", options: { fontSize: 36, bold: true, color: C.accent6 } },
+    ], { x: 5.2, y: 3.6, w: 3.0, h: 0.95, align: "center", objectName: "Số người còn lại" });
+    T(s, "→ nguy cơ thiếu nhân sự", { x: 5.2, y: 4.58, w: 3.0, h: 0.36, fontSize: 15, color: HEX.slate, align: "center", objectName: "Hệ quả" });
+    line(s, 8.3, 3.525, 0.55, 0, { endArrowType: "triangle" }, "Mũi tên vào shop");
 
-    // Thông điệp
-    tint(s, { x: 0.6, y: 5.25, w: 8.15, h: 1.15, rectRadius: 0.12, fill: { color: C.accent1, transparency: 91 }, objectName: "Khung thông điệp" });
+    tint(s, { x: 9.0, y: 2.0, w: 3.73, h: 3.05, rectRadius: 0.12, fill: { color: C.accent3, transparency: 88 }, line: { color: "F7E1A2", width: 1 }, objectName: "Thẻ Shop" });
+    await iconCircle(s, { x: 9.25, y: 2.25, d: 0.85, fill: C.accent3, name: "FaHouseMedical", color: HEX.dk2, objectName: "Shop" });
+    T(s, [
+      { text: "SHOP", options: { fontSize: 19, bold: true, color: C.text1, charSpacing: 1, breakLine: true } },
+      { text: "ca Thứ Bảy bị ảnh hưởng", options: { fontSize: 12, color: HEX.slate } },
+    ], { x: 10.3, y: 2.33, w: 2.3, h: 0.72, objectName: "Tiêu đề Shop" });
+    T(s, ["Tư vấn & bán hàng", "Khách giờ cao điểm", "Hàng hóa, vận hành", "Chất lượng phục vụ", "Áp lực người ở lại"].map((t, i, a) => ({
+      text: t, options: { bullet: { indent: 14 }, breakLine: i < a.length - 1 },
+    })), { x: 9.3, y: 3.3, w: 3.3, h: 1.6, fontSize: 14, color: C.text1, paraSpaceAfter: 3, objectName: "Ảnh hưởng" });
+
+    tint(s, { x: 0.6, y: 5.4, w: 12.13, h: 1.1, rectRadius: 0.12, fill: { color: C.accent1, transparency: 91 }, objectName: "Khung thông điệp" });
     T(s, [
       { text: "“Bài toán không phải chọn ai nghỉ –", options: { breakLine: true } },
       { text: "mà là cân bằng " },
@@ -142,12 +146,7 @@ async function icon(name, color = "FFFFFF", size = 256) {
       { text: " và " },
       { text: "VẬN HÀNH", options: { color: C.accent4 } },
       { text: ".”" },
-    ], { x: 0.85, y: 5.25, w: 7.7, h: 1.15, fontSize: 21, bold: true, color: C.text2, align: "center", valign: "middle", objectName: "Thông điệp" });
-
-    // Ảnh đề bài
-    card(s, { x: 9.05, y: 1.95, w: 3.68, h: 4.45, objectName: "Thẻ đề bài" });
-    s.addImage({ path: path.join(__dirname, "de-bai.jpg"), x: 9.24, y: 2.12, w: 3.3, h: 3.32, altText: "Ảnh đề bài: Chủ đề 2 – Quản trị nhân sự, Tình huống 2 được khoanh đỏ", objectName: "Ảnh đề bài" });
-    pill(s, "ĐỀ BÀI THỰC TẾ • TRUNG TÂM ĐÀO TẠO", { x: 9.24, y: 5.7, w: 3.3, h: 0.42, fill: { color: C.accent6 }, color: C.background1, fontSize: 9.5, objectName: "Nhãn đề bài" });
+    ], { x: 0.9, y: 5.4, w: 11.53, h: 1.1, fontSize: 22, bold: true, color: C.text2, align: "center", valign: "middle", objectName: "Thông điệp" });
 
     s.addNotes(NOTES[0]);
   }
